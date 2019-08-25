@@ -16,11 +16,13 @@ public class Question
 {
     private List<String> Questions;
     
+    // Responsible for initializing the list
     public Question()
     {
         Questions = new ArrayList<>();
     }
     
+    // Look for a question for another function
     private String findQuestion(String q)
     {
         String Finded = null;
@@ -36,7 +38,8 @@ public class Question
         
         return Finded;
     }
-    
+      
+    // Add a question to the list
     public void addQuestion(String q)
     {
         String Finded = findQuestion(q);
@@ -45,6 +48,7 @@ public class Question
             Questions.add(q);
     }
     
+    // Remove a question from the list
     public void removeQuestion(String q)
     {
         String Finded = findQuestion(q);
@@ -53,11 +57,13 @@ public class Question
             Questions.remove(q);
     }
     
+    // Take a question from the list
     public String getQuestion(int ID)
     {
         return Questions.get(ID);
     }
     
+    // Get list size
     public int getLength()
     {
         return Questions.size();
