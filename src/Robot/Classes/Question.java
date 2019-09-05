@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Robot;
+package Robot.Classes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,20 +14,22 @@ import java.util.List;
  */
 public class Question 
 {
-    private List<String> Questions;
+    private List<String> Perguntas;
+    private int[] Respostas;
     
     // Responsible for initializing the list
     public Question()
     {
-        Questions = new ArrayList<>();
+        Perguntas = new ArrayList<>();
+        Respostas = new int[10];
     }
     
     // Look for a question for another function
-    private String findQuestion(String q)
+    private String findPerguntas(String q)
     {
         String Finded = null;
         
-        for (String item : Questions)
+        for (String item : Perguntas)
         {
             if (item.equals(q))
             {
@@ -40,32 +42,32 @@ public class Question
     }
       
     // Add a question to the list
-    public void addQuestion(String q)
+    public void addPerguntas(String q)
     {
-        String Finded = findQuestion(q);
+        String Finded = findPerguntas(q);
         
         if (Finded == null)
-            Questions.add(q);
+            Perguntas.add(q);
     }
     
     // Remove a question from the list
-    public void removeQuestion(String q)
+    public void removePergunta(String q)
     {
-        String Finded = findQuestion(q);
+        String Finded = findPerguntas(q);
         
         if (Finded != null)
-            Questions.remove(q);
+            Perguntas.remove(q);
     }
     
     // Take a question from the list
-    public String getQuestion(int ID)
+    public String getPerguntas(int ID)
     {
-        return Questions.get(ID);
+        return Perguntas.get(ID);
     }
     
     // Get list size
     public int getLength()
     {
-        return Questions.size();
+        return Perguntas.size();
     }
 }
