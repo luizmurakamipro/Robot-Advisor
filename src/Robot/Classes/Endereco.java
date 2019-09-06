@@ -12,47 +12,48 @@ package Robot.Classes;
  */
 public class Endereco {
     
- private String endereco,nrendereco,cep,uf,bairro;
+ private String Logradouro, CEP, UF, Bairro;
+ private int Numero;
 
 
     public String getBairro() {
-        return bairro;
+        return Bairro;
     }
 
     public void setBairro(String bairro) {
-        this.bairro = bairro;
+        this.Bairro = bairro;
     }
 
-    public String getEndereco() {
-        return endereco;
+    public String getLogradouro() {
+        return Logradouro;
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    public void setLogradouro(String logradouro) {
+        this.Logradouro = logradouro;
     }
 
-    public String getNrendereco() {
-        return nrendereco;
+    public int getNumero() {
+        return Numero;
     }
 
-    public void setNrendereco(String nrendereco) {
-        this.nrendereco = nrendereco;
+    public void setNumero(int n) {
+        this.Numero = n;
     }
 
-    public String getCep() {
-        return cep;
+    public String getCEP() {
+        return CEP;
     }
 
-    public void setCep(String cep) {
-        this.cep = cep;
+    public void setCEP(String cep) {
+        this.CEP = cep;
     }
 
-    public String getUf() {
-        return uf;
+    public String getUF() {
+        return UF;
     }
 
-    public void setUf(String uf) {
-        this.uf = uf;
+    public void setUF(String uf) {
+        this.UF = uf;
     }
  
  

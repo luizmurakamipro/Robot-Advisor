@@ -12,13 +12,13 @@ import java.util.List;
  *
  * @author Luiz Murakami
  */
-public class Question 
+public class Questionario 
 {
     private List<String> Perguntas;
     private int[] Respostas;
     
     // Responsible for initializing the list
-    public Question()
+    public Questionario()
     {
         Perguntas = new ArrayList<>();
         Respostas = new int[10];

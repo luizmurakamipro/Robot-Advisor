@@ -14,66 +14,66 @@ import java.util.Date;
  */
 public class Usuario 
 {   
-    private String nome, rg, cpf, email, sexo;
-    private Date dtNasc;
-    private Endereco end;
+    private String Nome, RG, CPF, Email, Sexo;
+    private Date DataNascimento;
+    private Endereco EnderecoUsuario;
 
     public String getNome() {
-        return nome;
+        return Nome;
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        this.Nome = nome;
     }
 
-    public String getRg() {
-        return rg;
+    public String getRG() {
+        return RG;
     }
 
-    public void setRg(String rg) {
-        this.rg = rg;
+    public void setRG(String rg) {
+        this.RG = rg;
     }
 
-    public String getCpf() {
-        return cpf;
+    public String getCPF() {
+        return CPF;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setCPF(String cpf) {
+        this.CPF = cpf;
     }
 
     public Date getDtNasc() {
-        return dtNasc;
+        return DataNascimento;
     }
 
     public void setDtNasc(Date dtNasc) {
-        this.dtNasc = dtNasc;
+        this.DataNascimento = dtNasc;
     }
 
     public String getEmail() {
-        return email;
+        return Email;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.Email = email;
     }
 
     public String getSexo() {
-        return sexo;
+        return Sexo;
     }
 
     public void setSexo(String sexo) {
-        this.sexo = sexo;
+        this.Sexo = sexo;
     }
     
     public void setEndereco(Endereco e)
     {
-        this.end = e;
+        this.EnderecoUsuario = e;
     }
     
     public Endereco getEndereco()
     {
-        return this.end;
+        return this.EnderecoUsuario;
     }
     
 }

@@ -10,34 +10,33 @@ package Robot.Classes;
  * @author Luiz Paulo
  */
 public class Perfil  {
-    private Usuario pUser;
-    private String tipoPerfil;
-    private Question Quest;
+    private Usuario pUsuario;
+    private String TipoPerfil;
+    private Questionario pQuestionario;
     
-    public void setUser(Usuario u)
+    public void setUsuario(Usuario u)
     {
-        pUser = u;
+        pUsuario = u;
     }
     
-    public Usuario getUser()
+    public Usuario getUsuario()
     {
-        return pUser;
+        return pUsuario;
     }
     
-    public Question getResult() {
-        return Quest;
+    public Questionario getQuestionario() {
+        return pQuestionario;
     }
 
-    public void setResult(Question Quest) {
-        this.Quest = Quest;
+    public void setQuestionario(Questionario Quest) {
+        this.pQuestionario = Quest;
     }
 
     public String getTipoPerfil() {
-        return tipoPerfil;
+        return TipoPerfil;
     }
 
     public void setTipoPerfil(String tipoPerfil) {
-        this.tipoPerfil = tipoPerfil;
+        this.TipoPerfil = tipoPerfil;
     }
-    
 }

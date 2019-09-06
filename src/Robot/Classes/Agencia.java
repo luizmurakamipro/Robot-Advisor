@@ -10,59 +10,50 @@ package Robot.Classes;
  * @author Laboratorio
  */
 public class Agencia {
-    private int idAgencia;
-    private String razaoSoci;
-    private String email;
-    private String contato;
-    private String cnpj;
-    private String typeService;
+    private String RazaoSocial;
+    private String Email;
+    private String Contato;
+    private String CNPJ;
+    private String TipoServico;
 
-    public int getIdAgencia() {
-        return idAgencia;
+    public String getRazaoSocial() {
+        return RazaoSocial;
     }
 
-    public void setIdAgencia(int idAgencia) {
-        this.idAgencia = idAgencia;
-    }
-
-    public String getRazaoSoci() {
-        return razaoSoci;
-    }
-
-    public void setRazaoSoci(String razaoSoci) {
-        this.razaoSoci = razaoSoci;
+    public void setRazaoSocial(String razaoSoci) {
+        this.RazaoSocial = razaoSoci;
     }
 
     public String getEmail() {
-        return email;
+        return Email;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.Email = email;
     }
 
     public String getContato() {
-        return contato;
+        return Contato;
     }
 
     public void setContato(String contato) {
-        this.contato = contato;
+        this.Contato = contato;
     }
 
-    public String getCnpj() {
-        return cnpj;
+    public String getCNPJ() {
+        return CNPJ;
     }
 
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
+    public void setCNPJ(String cnpj) {
+        this.CNPJ = cnpj;
     }
 
-    public String getTypeService() {
-        return typeService;
+    public String getTipoServico() {
+        return TipoServico;
     }
 
-    public void setTypeService(String typeService) {
-        this.typeService = typeService;
+    public void setTipoServico(String typeService) {
+        this.TipoServico = typeService;
     }
     
     
