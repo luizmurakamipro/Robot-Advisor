@@ -38,6 +38,7 @@ public class Inicio extends JFrame {
         txtSenha = new javax.swing.JTextField();
         btnEntrar = new javax.swing.JButton();
         btnEsqueci = new javax.swing.JButton();
+        btnEsqueci1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Robot Advisor");
@@ -78,9 +79,9 @@ public class Inicio extends JFrame {
             .addComponent(txtSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
         );
 
-        btnEntrar.setBackground(new java.awt.Color(50, 50, 50));
+        btnEntrar.setBackground(new java.awt.Color(0, 51, 255));
         btnEntrar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btnEntrar.setForeground(new java.awt.Color(240, 240, 240));
+        btnEntrar.setForeground(new java.awt.Color(255, 255, 255));
         btnEntrar.setText("Entrar");
         btnEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,20 +92,42 @@ public class Inicio extends JFrame {
         btnEsqueci.setBackground(new java.awt.Color(50, 50, 50));
         btnEsqueci.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnEsqueci.setForeground(new java.awt.Color(240, 240, 240));
-        btnEsqueci.setText("Esqueci a senha");
+        btnEsqueci.setText("Cadastrar");
+        btnEsqueci.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEsqueciActionPerformed(evt);
+            }
+        });
+
+        btnEsqueci1.setBackground(new java.awt.Color(50, 50, 50));
+        btnEsqueci1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnEsqueci1.setForeground(new java.awt.Color(240, 240, 240));
+        btnEsqueci1.setText("Esqueci a senha");
+        btnEsqueci1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEsqueci1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlLoginLayout = new javax.swing.GroupLayout(pnlLogin);
         pnlLogin.setLayout(pnlLoginLayout);
         pnlLoginLayout.setHorizontalGroup(
             pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlLoginLayout.createSequentialGroup()
-                .addContainerGap(258, Short.MAX_VALUE)
-                .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(pnlUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnEntrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlSenha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnEsqueci, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE))
-                .addContainerGap(259, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(pnlUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnEntrar, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
+                        .addComponent(pnlSenha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pnlLoginLayout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(btnEsqueci1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(pnlLoginLayout.createSequentialGroup()
+                .addGap(317, 317, 317)
+                .addComponent(btnEsqueci, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(317, Short.MAX_VALUE))
         );
         pnlLoginLayout.setVerticalGroup(
             pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,9 +138,11 @@ public class Inicio extends JFrame {
                 .addComponent(pnlSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addComponent(btnEsqueci1)
                 .addGap(18, 18, 18)
-                .addComponent(btnEsqueci, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addComponent(btnEsqueci)
+                .addGap(36, 36, 36))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -128,7 +153,7 @@ public class Inicio extends JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addComponent(pnlLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -140,6 +165,15 @@ public class Inicio extends JFrame {
         new Principal().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnEntrarActionPerformed
+
+    private void btnEsqueci1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEsqueci1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEsqueci1ActionPerformed
+
+    private void btnEsqueciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEsqueciActionPerformed
+         new Cadastro().setVisible(true);
+          this.dispose();
+    }//GEN-LAST:event_btnEsqueciActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,6 +217,7 @@ public class Inicio extends JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEntrar;
     private javax.swing.JButton btnEsqueci;
+    private javax.swing.JButton btnEsqueci1;
     private javax.swing.JPanel pnlLogin;
     private javax.swing.JPanel pnlSenha;
     private javax.swing.JPanel pnlUsuario;
