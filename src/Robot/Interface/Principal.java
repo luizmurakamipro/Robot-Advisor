@@ -104,6 +104,11 @@ public class Principal extends javax.swing.JFrame {
         btnSimulacao.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         btnSimulacao.setForeground(new java.awt.Color(255, 255, 255));
         btnSimulacao.setText("SIMULAÇÃO");
+        btnSimulacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSimulacaoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpEsxolhaLayout = new javax.swing.GroupLayout(jpEsxolha);
         jpEsxolha.setLayout(jpEsxolhaLayout);
@@ -152,6 +157,11 @@ public class Principal extends javax.swing.JFrame {
     private void txtSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSaldoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSaldoActionPerformed
+
+    private void btnSimulacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimulacaoActionPerformed
+        new Simulacao().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnSimulacaoActionPerformed
 
     /**
      * @param args the command line arguments
