@@ -28,28 +28,130 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         Area = new Robot.Interface.AreaPrincipal();
+        jpSaldo = new javax.swing.JPanel();
+        lblSaldo = new javax.swing.JLabel();
+        txtSaldo = new javax.swing.JTextField();
+        jpEsxolha = new javax.swing.JPanel();
+        btnInvestir = new javax.swing.JButton();
+        btnAlterar = new javax.swing.JButton();
+        btnRelatorio = new javax.swing.JButton();
+        btnSimulacao = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Robot Advisor");
 
         Area.setBackground(new java.awt.Color(128, 128, 128));
-        Area.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Principal", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 24), new java.awt.Color(240, 240, 240))); // NOI18N
+        Area.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ROBOT ADVISOR", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 24), new java.awt.Color(240, 240, 240))); // NOI18N
         Area.setToolTipText("");
         Area.setDoubleBuffered(true);
+
+        jpSaldo.setBackground(new java.awt.Color(128, 128, 128));
+
+        lblSaldo.setBackground(new java.awt.Color(255, 255, 255));
+        lblSaldo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblSaldo.setForeground(new java.awt.Color(255, 255, 255));
+        lblSaldo.setText("SALDO R$");
+
+        txtSaldo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSaldoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jpSaldoLayout = new javax.swing.GroupLayout(jpSaldo);
+        jpSaldo.setLayout(jpSaldoLayout);
+        jpSaldoLayout.setHorizontalGroup(
+            jpSaldoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpSaldoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtSaldo, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jpSaldoLayout.setVerticalGroup(
+            jpSaldoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpSaldoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jpSaldoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblSaldo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtSaldo))
+                .addContainerGap())
+        );
+
+        Area.add(jpSaldo);
+        jpSaldo.setBounds(40, 40, 250, 42);
+
+        jpEsxolha.setBackground(new java.awt.Color(128, 128, 128));
+        jpEsxolha.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "MENU", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+
+        btnInvestir.setBackground(new java.awt.Color(51, 0, 102));
+        btnInvestir.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        btnInvestir.setForeground(new java.awt.Color(255, 255, 255));
+        btnInvestir.setText("INVESTIR");
+
+        btnAlterar.setBackground(new java.awt.Color(51, 0, 102));
+        btnAlterar.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        btnAlterar.setForeground(new java.awt.Color(255, 255, 255));
+        btnAlterar.setText("ALTERAR ");
+
+        btnRelatorio.setBackground(new java.awt.Color(51, 0, 102));
+        btnRelatorio.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        btnRelatorio.setForeground(new java.awt.Color(255, 255, 255));
+        btnRelatorio.setText("RELATÓRIO");
+
+        btnSimulacao.setBackground(new java.awt.Color(51, 0, 102));
+        btnSimulacao.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        btnSimulacao.setForeground(new java.awt.Color(255, 255, 255));
+        btnSimulacao.setText("SIMULAÇÃO");
+
+        javax.swing.GroupLayout jpEsxolhaLayout = new javax.swing.GroupLayout(jpEsxolha);
+        jpEsxolha.setLayout(jpEsxolhaLayout);
+        jpEsxolhaLayout.setHorizontalGroup(
+            jpEsxolhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpEsxolhaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnInvestir)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnSimulacao)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50))
+        );
+        jpEsxolhaLayout.setVerticalGroup(
+            jpEsxolhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpEsxolhaLayout.createSequentialGroup()
+                .addGroup(jpEsxolhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jpEsxolhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(btnRelatorio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
+                        .addComponent(btnSimulacao, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnInvestir, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        Area.add(jpEsxolha);
+        jpEsxolha.setBounds(40, 100, 530, 120);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Area, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(Area, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Area, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+            .addComponent(Area, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSaldoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSaldoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -88,5 +190,13 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private Robot.Interface.AreaPrincipal Area;
+    private javax.swing.JButton btnAlterar;
+    private javax.swing.JButton btnInvestir;
+    private javax.swing.JButton btnRelatorio;
+    private javax.swing.JButton btnSimulacao;
+    private javax.swing.JPanel jpEsxolha;
+    private javax.swing.JPanel jpSaldo;
+    private javax.swing.JLabel lblSaldo;
+    private javax.swing.JTextField txtSaldo;
     // End of variables declaration//GEN-END:variables
 }
