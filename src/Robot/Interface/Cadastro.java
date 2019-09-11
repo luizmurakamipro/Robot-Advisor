@@ -1,12 +1,9 @@
 package Robot.Interface;
 
 import Robot.Classes.Controle;
+import Robot.Classes.Endereco;
 import Robot.Classes.Usuario;
-import org.jdesktop.beansbinding.AutoBinding;
-import org.jdesktop.beansbinding.BeanProperty;
-import org.jdesktop.beansbinding.Binding;
-import org.jdesktop.beansbinding.BindingGroup;
-import org.jdesktop.beansbinding.Bindings;
+import java.util.Date;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -415,10 +412,29 @@ public class Cadastro extends javax.swing.JFrame {
 
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
         Usuario u = new Usuario();
+        Endereco e = new Endereco();
+        Date d = new Date();
+        String s;
+        
         u.setNome(txtNome.getText());
-        //u.setCPF(s);
-        Controle.pUser.add(u);
-        System.out.printf("%s", Controle.pUser.get(0).getNome());
+        u.setCPF(txtCpf.getText());
+        u.setRG(txtRg.getText());
+        u.setEmail(txtEmail.getText());
+        
+        s = btnMasculino.isSelected() == true ? "Masculino" : btnFeminino.isSelected() == true ? "Feminino" : "";
+        u.setSexo(s);
+        
+        e.setBairro(txtBairro.getText());
+        e.setCEP(txtCep.getText());
+        e.setLogradouro(txtComplemento.getText());
+        e.setNumero(txtNumero.getText());
+        e.setUF(comUf.getSelectedItem().toString());
+        u.setEndereco(e);
+        
+        if (s.equals(""))
+            System.out.println("Erro");
+        else
+            Controle.pUser.add(u);
     }//GEN-LAST:event_btCadastrarActionPerformed
 
     private void txtComplementoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtComplementoActionPerformed
