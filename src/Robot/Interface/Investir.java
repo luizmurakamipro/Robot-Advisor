@@ -28,20 +28,104 @@ public class Investir extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        btnMenu3 = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        lblAgencia = new javax.swing.JLabel();
+        jcbAgencia = new javax.swing.JComboBox<>();
+        lblTpInves = new javax.swing.JLabel();
+        lblValor = new javax.swing.JLabel();
+        jcbValor = new javax.swing.JComboBox<>();
+        btnInvestir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(128, 128, 128));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Investimentos", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+
+        btnMenu3.setBackground(new java.awt.Color(153, 0, 0));
+        btnMenu3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnMenu3.setForeground(new java.awt.Color(255, 255, 255));
+        btnMenu3.setText("Menu");
+        btnMenu3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenu3ActionPerformed(evt);
+            }
+        });
+
+        jComboBox1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ações", "Caderneta de Poupança", "CDB e RDB", "Debêntures", "Fundos de Investimento", "LCI e LCA", "Previdência Privada", "Títulos Públicos" }));
+
+        lblAgencia.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        lblAgencia.setForeground(new java.awt.Color(255, 255, 255));
+        lblAgencia.setText("Agência Corretora");
+
+        jcbAgencia.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jcbAgencia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Agência 1", "Agência 2", "Agência 3", "Agência 4" }));
+
+        lblTpInves.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        lblTpInves.setForeground(new java.awt.Color(255, 255, 255));
+        lblTpInves.setText("Tipo Investimento");
+
+        lblValor.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        lblValor.setForeground(new java.awt.Color(255, 255, 255));
+        lblValor.setText("Valor R$");
+
+        jcbValor.setEditable(true);
+        jcbValor.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jcbValor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "100,00", "1.000,00", "10.000,00", "50.000,00" }));
+
+        btnInvestir.setBackground(new java.awt.Color(0, 153, 0));
+        btnInvestir.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnInvestir.setForeground(new java.awt.Color(255, 255, 255));
+        btnInvestir.setText("Investir");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 526, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnMenu3, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnInvestir, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblAgencia)
+                                .addGap(18, 18, 18)
+                                .addComponent(jcbAgencia, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(60, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblValor)
+                            .addComponent(lblTpInves))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jcbValor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAgencia)
+                    .addComponent(jcbAgencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTpInves)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblValor)
+                    .addComponent(jcbValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(52, 52, 52)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnMenu3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnInvestir, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -52,11 +136,16 @@ public class Investir extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenu3ActionPerformed
+        new Principal().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnMenu3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -94,6 +183,17 @@ public class Investir extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnInvestir;
+    private javax.swing.JButton btnMenu;
+    private javax.swing.JButton btnMenu1;
+    private javax.swing.JButton btnMenu2;
+    private javax.swing.JButton btnMenu3;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JComboBox<String> jcbAgencia;
+    private javax.swing.JComboBox<String> jcbValor;
+    private javax.swing.JLabel lblAgencia;
+    private javax.swing.JLabel lblTpInves;
+    private javax.swing.JLabel lblValor;
     // End of variables declaration//GEN-END:variables
 }

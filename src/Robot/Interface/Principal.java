@@ -89,6 +89,11 @@ public class Principal extends javax.swing.JFrame {
         btnInvestir.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         btnInvestir.setForeground(new java.awt.Color(255, 255, 255));
         btnInvestir.setText("INVESTIR");
+        btnInvestir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInvestirActionPerformed(evt);
+            }
+        });
 
         btnAlterar.setBackground(new java.awt.Color(51, 0, 102));
         btnAlterar.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
@@ -98,7 +103,12 @@ public class Principal extends javax.swing.JFrame {
         btnRelatorio.setBackground(new java.awt.Color(51, 0, 102));
         btnRelatorio.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         btnRelatorio.setForeground(new java.awt.Color(255, 255, 255));
-        btnRelatorio.setText("RELATÓRIO");
+        btnRelatorio.setText("AVANÇO FINANCEIRO");
+        btnRelatorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRelatorioActionPerformed(evt);
+            }
+        });
 
         btnSimulacao.setBackground(new java.awt.Color(51, 0, 102));
         btnSimulacao.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
@@ -115,30 +125,30 @@ public class Principal extends javax.swing.JFrame {
         jpEsxolhaLayout.setHorizontalGroup(
             jpEsxolhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpEsxolhaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(btnInvestir)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnSimulacao)
+                .addComponent(btnSimulacao, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnRelatorio, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50))
+                .addContainerGap())
         );
         jpEsxolhaLayout.setVerticalGroup(
             jpEsxolhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpEsxolhaLayout.createSequentialGroup()
-                .addGroup(jpEsxolhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jpEsxolhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(btnRelatorio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
-                        .addComponent(btnSimulacao, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnInvestir, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jpEsxolhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpEsxolhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSimulacao, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnInvestir, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         Area.add(jpEsxolha);
-        jpEsxolha.setBounds(40, 100, 530, 120);
+        jpEsxolha.setBounds(0, 100, 620, 120);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -162,6 +172,16 @@ public class Principal extends javax.swing.JFrame {
         new Simulacao().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnSimulacaoActionPerformed
+
+    private void btnRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRelatorioActionPerformed
+        new Relatorio().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnRelatorioActionPerformed
+
+    private void btnInvestirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInvestirActionPerformed
+       new Investir().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnInvestirActionPerformed
 
     /**
      * @param args the command line arguments

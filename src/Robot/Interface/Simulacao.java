@@ -61,7 +61,7 @@ public class Simulacao extends javax.swing.JFrame {
         lblTpInves.setText("Tipo Investimento");
 
         jcbTpInves.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jcbTpInves.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Investimento 1", "Investimento 2", "Investimento 3", "Investimento 4" }));
+        jcbTpInves.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ações", "Caderneta de Poupança", "CDB e RDB", "Debêntures", "Fundos de Investimento", "LCI e LCA", "Previdência Privada", "Títulos Públicos" }));
 
         lblValor.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lblValor.setForeground(new java.awt.Color(255, 255, 255));
@@ -160,10 +160,9 @@ public class Simulacao extends javax.swing.JFrame {
                             .addComponent(lblValor))
                         .addGap(53, 53, 53)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jcbAgencia, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jcbTpInves, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jcbValor, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 97, Short.MAX_VALUE))
+                            .addComponent(jcbAgencia, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jcbTpInves, 0, 251, Short.MAX_VALUE)
+                            .addComponent(jcbValor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
