@@ -14,7 +14,7 @@ public class Simulacao extends javax.swing.JFrame {
     /**
      * Creates new form Simulacao
      */
-    public Simulacao() {
+    public Simulacao() { 
         initComponents();
     }
 
