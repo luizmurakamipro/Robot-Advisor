@@ -28,6 +28,7 @@ public class Questionario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        sclPane = new javax.swing.JScrollPane();
         jpQuestionario = new javax.swing.JPanel();
         lblP1 = new javax.swing.JLabel();
         jbtnSim1 = new javax.swing.JRadioButton();
@@ -264,7 +265,7 @@ public class Questionario extends javax.swing.JFrame {
                                 .addComponent(jbtnSim10)
                                 .addGap(32, 32, 32)
                                 .addComponent(jbtnNao10)))))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpQuestionarioLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -282,7 +283,7 @@ public class Questionario extends javax.swing.JFrame {
                     .addGroup(jpQuestionarioLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(lblP1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
         );
         jpQuestionarioLayout.setVerticalGroup(
             jpQuestionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -351,16 +352,18 @@ public class Questionario extends javax.swing.JFrame {
                 .addComponent(btnEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        sclPane.setViewportView(jpQuestionario);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpQuestionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(sclPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 745, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jpQuestionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(sclPane, javax.swing.GroupLayout.PREFERRED_SIZE, 636, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -435,5 +438,6 @@ public class Questionario extends javax.swing.JFrame {
     private javax.swing.JLabel lblP7;
     private javax.swing.JLabel lblP8;
     private javax.swing.JLabel lblP9;
+    private javax.swing.JScrollPane sclPane;
     // End of variables declaration//GEN-END:variables
 }
