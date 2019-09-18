@@ -12,8 +12,7 @@ package Robot.Classes;
  */
 public class Endereco {
     
- private String Logradouro, CEP, UF, Bairro;
- private int Numero;
+ private String Logradouro, CEP, UF, Bairro, Numero;
 
 
     public String getBairro() {
@@ -32,11 +31,11 @@ public class Endereco {
         this.Logradouro = logradouro;
     }
 
-    public int getNumero() {
+    public String getNumero() {
         return Numero;
     }
 
-    public void setNumero(int n) {
+    public void setNumero(String n) {
         this.Numero = n;
     }
 
