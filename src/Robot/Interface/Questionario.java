@@ -208,10 +208,15 @@ public class Questionario extends javax.swing.JFrame {
         jbtnNao10.setForeground(new java.awt.Color(255, 255, 255));
         jbtnNao10.setText("Não");
 
-        btnEnviar.setBackground(new java.awt.Color(0, 0, 153));
+        btnEnviar.setBackground(new java.awt.Color(0, 51, 255));
         btnEnviar.setForeground(new java.awt.Color(255, 255, 255));
         btnEnviar.setText("ENVIAR");
         btnEnviar.setAutoscrolls(true);
+        btnEnviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnviarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpQuestionarioLayout = new javax.swing.GroupLayout(jpQuestionario);
         jpQuestionario.setLayout(jpQuestionarioLayout);
@@ -369,6 +374,10 @@ public class Questionario extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEnviarActionPerformed
 
     /**
      * @param args the command line arguments

@@ -64,7 +64,7 @@ public class Relatorio extends javax.swing.JFrame {
         lblPeriodo1.setForeground(new java.awt.Color(255, 255, 255));
         lblPeriodo1.setText("Período Inicial:");
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 102));
+        jButton1.setBackground(new java.awt.Color(0, 51, 255));
         jButton1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Relatório");

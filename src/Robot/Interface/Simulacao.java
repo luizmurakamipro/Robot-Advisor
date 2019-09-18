@@ -71,7 +71,7 @@ public class Simulacao extends javax.swing.JFrame {
         jcbValor.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jcbValor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "100,00", "1.000,00", "10.000,00", "50.000,00" }));
 
-        btnSimular.setBackground(new java.awt.Color(0, 0, 102));
+        btnSimular.setBackground(new java.awt.Color(0, 51, 255));
         btnSimular.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnSimular.setForeground(new java.awt.Color(255, 255, 255));
         btnSimular.setText("Simular");

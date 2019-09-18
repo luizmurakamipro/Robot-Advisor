@@ -85,7 +85,7 @@ public class Principal extends javax.swing.JFrame {
         jpEsxolha.setBackground(new java.awt.Color(128, 128, 128));
         jpEsxolha.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "MENU", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 
-        btnInvestir.setBackground(new java.awt.Color(51, 0, 102));
+        btnInvestir.setBackground(new java.awt.Color(0, 51, 255));
         btnInvestir.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         btnInvestir.setForeground(new java.awt.Color(255, 255, 255));
         btnInvestir.setText("INVESTIR");
@@ -95,12 +95,12 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        btnAlterar.setBackground(new java.awt.Color(51, 0, 102));
+        btnAlterar.setBackground(new java.awt.Color(0, 51, 255));
         btnAlterar.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         btnAlterar.setForeground(new java.awt.Color(255, 255, 255));
         btnAlterar.setText("ALTERAR ");
 
-        btnRelatorio.setBackground(new java.awt.Color(51, 0, 102));
+        btnRelatorio.setBackground(new java.awt.Color(0, 51, 255));
         btnRelatorio.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         btnRelatorio.setForeground(new java.awt.Color(255, 255, 255));
         btnRelatorio.setText("AVANÇO FINANCEIRO");
@@ -110,7 +110,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        btnSimulacao.setBackground(new java.awt.Color(51, 0, 102));
+        btnSimulacao.setBackground(new java.awt.Color(0, 51, 255));
         btnSimulacao.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         btnSimulacao.setForeground(new java.awt.Color(255, 255, 255));
         btnSimulacao.setText("SIMULAÇÃO");
@@ -130,7 +130,7 @@ public class Principal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSimulacao, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnRelatorio, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                .addComponent(btnRelatorio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -148,7 +148,7 @@ public class Principal extends javax.swing.JFrame {
         );
 
         Area.add(jpEsxolha);
-        jpEsxolha.setBounds(0, 100, 620, 120);
+        jpEsxolha.setBounds(10, 100, 610, 120);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
