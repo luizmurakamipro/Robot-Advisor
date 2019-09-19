@@ -425,6 +425,7 @@ public class Cadastro extends javax.swing.JFrame {
         u.setSexo(s);
         
         e.setBairro(txtBairro.getText());
+        
         e.setCEP(txtCep.getText());
         e.setLogradouro(txtComplemento.getText());
         e.setNumero(txtNumero.getText());
@@ -434,7 +435,7 @@ public class Cadastro extends javax.swing.JFrame {
         if (s.equals(""))
             System.out.println("Erro");
         else
-            Controle.pUser.add(u);
+            Controle.getInstacia().getList().add(u);
     }//GEN-LAST:event_btCadastrarActionPerformed
 
     private void txtComplementoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtComplementoActionPerformed

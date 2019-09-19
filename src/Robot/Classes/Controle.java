@@ -13,9 +13,23 @@ import java.util.List;
  * @author Laboratorio
  */
 public class Controle {
-    public static List<Usuario> pUser;
+    public static Controle Instancia;
+    private static List<Usuario> pUser;
     
-    public Controle()
+    public static Controle getInstacia()
+    {
+        if (Instancia == null)
+            Instancia = new Controle();
+        
+        return Instancia;
+    }
+    
+    public List<Usuario> getList()
+    {
+        return pUser;
+    }
+    
+    private Controle()
     {
         pUser = new LinkedList<>(); 
     }
