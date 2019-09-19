@@ -31,7 +31,7 @@ public class Principal extends javax.swing.JFrame {
         jpSaldo = new javax.swing.JPanel();
         lblSaldo = new javax.swing.JLabel();
         txtSaldo = new javax.swing.JTextField();
-        jpEsxolha = new javax.swing.JPanel();
+        jpEscolha = new javax.swing.JPanel();
         btnInvestir = new javax.swing.JButton();
         btnAlterar = new javax.swing.JButton();
         btnRelatorio = new javax.swing.JButton();
@@ -79,11 +79,8 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        Area.add(jpSaldo);
-        jpSaldo.setBounds(40, 40, 250, 42);
-
-        jpEsxolha.setBackground(new java.awt.Color(128, 128, 128));
-        jpEsxolha.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "MENU", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        jpEscolha.setBackground(new java.awt.Color(128, 128, 128));
+        jpEscolha.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "MENU", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 
         btnInvestir.setBackground(new java.awt.Color(0, 51, 255));
         btnInvestir.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
@@ -120,11 +117,11 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jpEsxolhaLayout = new javax.swing.GroupLayout(jpEsxolha);
-        jpEsxolha.setLayout(jpEsxolhaLayout);
-        jpEsxolhaLayout.setHorizontalGroup(
-            jpEsxolhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpEsxolhaLayout.createSequentialGroup()
+        javax.swing.GroupLayout jpEscolhaLayout = new javax.swing.GroupLayout(jpEscolha);
+        jpEscolha.setLayout(jpEscolhaLayout);
+        jpEscolhaLayout.setHorizontalGroup(
+            jpEscolhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpEscolhaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnInvestir)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -135,30 +132,54 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        jpEsxolhaLayout.setVerticalGroup(
-            jpEsxolhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpEsxolhaLayout.createSequentialGroup()
-                .addGroup(jpEsxolhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpEsxolhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        jpEscolhaLayout.setVerticalGroup(
+            jpEscolhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpEscolhaLayout.createSequentialGroup()
+                .addGroup(jpEscolhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpEscolhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnSimulacao, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnInvestir, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        Area.add(jpEsxolha);
-        jpEsxolha.setBounds(10, 100, 610, 120);
+        Area.setLayer(jpSaldo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Area.setLayer(jpEscolha, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout AreaLayout = new javax.swing.GroupLayout(Area);
+        Area.setLayout(AreaLayout);
+        AreaLayout.setHorizontalGroup(
+            AreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AreaLayout.createSequentialGroup()
+                .addGroup(AreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AreaLayout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jpSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(AreaLayout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(jpEscolha, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(4, Short.MAX_VALUE))
+        );
+        AreaLayout.setVerticalGroup(
+            AreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AreaLayout.createSequentialGroup()
+                .addGap(9, 9, 9)
+                .addComponent(jpSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(jpEscolha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(48, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Area, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(Area, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Area, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(Area, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -224,7 +245,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton btnInvestir;
     private javax.swing.JButton btnRelatorio;
     private javax.swing.JButton btnSimulacao;
-    private javax.swing.JPanel jpEsxolha;
+    private javax.swing.JPanel jpEscolha;
     private javax.swing.JPanel jpSaldo;
     private javax.swing.JLabel lblSaldo;
     private javax.swing.JTextField txtSaldo;
