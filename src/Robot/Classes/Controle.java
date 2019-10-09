@@ -16,7 +16,7 @@ public class Controle {
     public static Controle Instancia;
     private static List<Usuario> pUser;
     
-    public static Controle getInstacia()
+    public static Controle getInstancia()
     {
         if (Instancia == null)
             Instancia = new Controle();
