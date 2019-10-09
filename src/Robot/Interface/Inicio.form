@@ -134,6 +134,9 @@
                   <Color blue="e6" green="e6" red="e6" type="rgb"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtUsuarioActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

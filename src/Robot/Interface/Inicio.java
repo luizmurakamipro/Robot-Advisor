@@ -45,12 +45,17 @@ public class Inicio extends JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         pnlLogin.setBackground(new java.awt.Color(128, 128, 128));
-        pnlLogin.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Login", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 24), new java.awt.Color(240, 240, 240))); // NOI18N
+        pnlLogin.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Login", 2, 0, new java.awt.Font("Tahoma", 1, 24), new java.awt.Color(240, 240, 240))); // NOI18N
 
         pnlUsuario.setBackground(new java.awt.Color(128, 128, 128));
-        pnlUsuario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Usuário", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 18), new java.awt.Color(240, 240, 240))); // NOI18N
+        pnlUsuario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Usuário", 1, 0, new java.awt.Font("Arial", 1, 18), new java.awt.Color(240, 240, 240))); // NOI18N
 
         txtUsuario.setBackground(new java.awt.Color(230, 230, 230));
+        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUsuarioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlUsuarioLayout = new javax.swing.GroupLayout(pnlUsuario);
         pnlUsuario.setLayout(pnlUsuarioLayout);
@@ -64,7 +69,7 @@ public class Inicio extends JFrame {
         );
 
         pnlSenha.setBackground(new java.awt.Color(128, 128, 128));
-        pnlSenha.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Senha", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 18), new java.awt.Color(240, 240, 240))); // NOI18N
+        pnlSenha.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Senha", 1, 0, new java.awt.Font("Arial", 1, 18), new java.awt.Color(240, 240, 240))); // NOI18N
 
         txtSenha.setBackground(new java.awt.Color(230, 230, 230));
 
@@ -162,8 +167,16 @@ public class Inicio extends JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        new Principal().setVisible(true);
-        this.dispose();
+        
+
+         if (txtUsuario.getText().equals("")){
+         System.out.printf("Necessario todos os campos preenchidos");
+           }else{
+          new Principal().setVisible(true);
+          this.dispose();
+                }          
+       
+        
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void btnEsqueci1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEsqueci1ActionPerformed
@@ -174,6 +187,10 @@ public class Inicio extends JFrame {
          new Cadastro().setVisible(true);
           this.dispose();
     }//GEN-LAST:event_btnEsqueciActionPerformed
+
+    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
+       
+    }//GEN-LAST:event_txtUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -224,4 +241,8 @@ public class Inicio extends JFrame {
     private javax.swing.JTextField txtSenha;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
+
+    private Object getEmail() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
