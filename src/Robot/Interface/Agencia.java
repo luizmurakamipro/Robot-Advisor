@@ -207,7 +207,7 @@ public class Agencia extends javax.swing.JFrame {
     private void txtCpfKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCpfKeyReleased
 
     }//GEN-LAST:event_txtCpfKeyReleased
-
+ 
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
         new Inicio().setVisible(true);
         this.dispose();      

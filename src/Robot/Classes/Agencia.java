@@ -18,7 +18,7 @@ public class Agencia {
 
     public String getRazaoSocial() {
         return RazaoSocial;
-    }
+    } 
 
     public void setRazaoSocial(String razaoSoci) {
         this.RazaoSocial = razaoSoci;
