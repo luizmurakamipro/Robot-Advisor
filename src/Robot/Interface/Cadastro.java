@@ -1,10 +1,12 @@
 package Robot.Interface;
 
-import Robot.Classes.Controle;
 import Robot.Classes.Endereco;
 import Robot.Classes.Usuario;
+import Robot.DAO.UsuarioDAO;
+import Robot.Utilidade.StringToDate;
 import java.awt.event.KeyEvent;
-import java.util.Date;
+import java.sql.Date;
+import java.util.List;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -17,16 +19,18 @@ import java.util.Date;
  * @author Laboratorio
  */
 public class Cadastro extends javax.swing.JFrame {
+    private List<Usuario> pUser;
     private String bCPF;
     private String bCEP;
     private String bCelular;
     private String bTelefone;
     private String bRG;
+    private String bDataNascimento;
     
     /**
      * Creates new form LoginCadastros
      */
-    public Cadastro() {
+    public Cadastro() {     
         initComponents();
         
         /*BindingGroup bg = new BindingGroup();
@@ -163,6 +167,12 @@ public class Cadastro extends javax.swing.JFrame {
             }
         });
 
+        txtDnasc.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtDnascKeyReleased(evt);
+            }
+        });
+
         txtCep.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtCepKeyReleased(evt);
@@ -226,8 +236,8 @@ public class Cadastro extends javax.swing.JFrame {
                                 .addComponent(btnFeminino)
                                 .addGap(12, 12, 12)
                                 .addComponent(btnMasculino, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(97, 97, 97)
-                                .addComponent(txtDnasc, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(108, 108, 108)
+                                .addComponent(txtDnasc, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lblNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -364,34 +374,45 @@ public class Cadastro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
-        Usuario u = new Usuario();
-        Endereco e = new Endereco();
-        Date d = new Date();
-        String s;
-        
-        u.setNome(txtNome.getText());
-        u.setCPF(txtCpf.getText());
-        u.setRG(txtRg.getText());
-        u.setEmail(txtEmail.getText());
-        
-        s = btnMasculino.isSelected() == true ? "Masculino" : btnFeminino.isSelected() == true ? "Feminino" : "";
-        u.setSexo(s);
-        
-        if (s.equals(""))
-            u.setSexo("Não definido");
+       try
+       {
+            Usuario u = new Usuario();
+            Endereco e = new Endereco();
+            String s = "";
+
+            u.setNome(txtNome.getText());
+            u.setCPF(txtCpf.getText().replaceAll("[^0-9]", ""));
+            u.setRG(txtRg.getText().replaceAll("[^0-9]", ""));
+            u.setEmail(txtEmail.getText());
+            StringToDate td = new StringToDate();
+            u.setDtNasc(td.convertReverse(txtDnasc.getText()));
+
+            s = btnMasculino.isSelected() == true ? "Masculino" : btnFeminino.isSelected() == true ? "Feminino" : "Não definido";
+            u.setSexo(s);
+
+            e.setBairro(txtBairro.getText());
+
+            e.setCEP(txtCep.getText().replaceAll("[^0-9]", ""));
+            e.setLogradouro(txtComplemento.getText());
+            e.setNumero(txtNumero.getText());
+            e.setUF(comUf.getSelectedItem().toString());
+            u.setEndereco(e);
+
+            UsuarioDAO cd = new UsuarioDAO();
+            pUser = cd.listar();
             
-        e.setBairro(txtBairro.getText());
-        
-        e.setCEP(txtCep.getText());
-        e.setLogradouro(txtComplemento.getText());
-        e.setNumero(txtNumero.getText());
-        e.setUF(comUf.getSelectedItem().toString());
-        u.setEndereco(e);
-        
-        Controle.getInstancia().getList().add(u);
-        
-        System.out.printf("%s", Controle.getInstancia().getList().get(0).getNome());
-                
+            for (Usuario c : pUser)
+            {
+                if(c.getID() == null)
+                    cd.inserir(u);
+    //            else
+    //                cd.alterar(c);
+            }
+       }
+       catch (Exception e)
+       {
+           System.out.printf("Erro ao cadastrar: %s", e.getMessage());
+       }
     }//GEN-LAST:event_btCadastrarActionPerformed
 
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
@@ -518,6 +539,24 @@ public class Cadastro extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_txtRgKeyReleased
+
+    private void txtDnascKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDnascKeyReleased
+        bDataNascimento = txtDnasc.getText().length() == 10 ? txtDnasc.getText() : bDataNascimento;
+        
+        if (txtDnasc.getText().length() > 10)
+            txtDnasc.setText(bDataNascimento);
+        
+        if (txtDnasc.getText().length() > 0 && evt.getKeyCode() != KeyEvent.VK_BACK_SPACE)
+        {
+            switch (txtDnasc.getText().length())
+            {
+                case 2:
+                case 5:
+                    txtDnasc.setText(txtDnasc.getText() + "/");
+                    break;
+            }
+        }
+    }//GEN-LAST:event_txtDnascKeyReleased
 
     /**
      * @param args the command line arguments

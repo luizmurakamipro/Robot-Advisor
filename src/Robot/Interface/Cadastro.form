@@ -89,8 +89,8 @@
                                   <Component id="btnFeminino" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                   <Component id="btnMasculino" min="-2" pref="102" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
-                                  <Component id="txtDnasc" min="-2" pref="124" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
+                                  <Component id="txtDnasc" min="-2" pref="113" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="lblNumero" min="-2" pref="18" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -404,6 +404,9 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtDnasc">
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtDnascKeyReleased"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtEndereco">
         </Component>

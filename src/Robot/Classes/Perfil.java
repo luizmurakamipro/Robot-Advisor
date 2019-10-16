@@ -5,6 +5,9 @@
  */
 package Robot.Classes;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+
 /**
  *
  * @author Luiz Paulo
@@ -14,6 +17,30 @@ public class Perfil  {
     private String TipoPerfil;
     private Questionario pQuestionario;
     
+    private Integer ID;
+
+    public static final String PROP_ID = "ID";
+
+    public Integer getID() {
+        return ID;
+    }
+
+    public void setID(Integer ID) {
+        Integer oldID = this.ID;
+        this.ID = ID;
+        propertyChangeSupport.firePropertyChange(PROP_ID, oldID, ID);
+    }
+
+    private transient final PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
+
+    public void addPropertyChangeListener(PropertyChangeListener listener) {
+        propertyChangeSupport.addPropertyChangeListener(listener);
+    }
+
+    public void removePropertyChangeListener(PropertyChangeListener listener) {
+        propertyChangeSupport.removePropertyChangeListener(listener);
+    }
+
     public void setUsuario(Usuario u)
     {
         pUsuario = u;
