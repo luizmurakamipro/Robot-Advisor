@@ -29,21 +29,22 @@ public class UsuarioDAO extends DAO<Usuario>{
         try
         {              
             EnderecoDAO end = new EnderecoDAO();
-            PerfilDAO pfl = new PerfilDAO();
+            //PerfilDAO pfl = new PerfilDAO();
             
             int EndID = -1;
-            int PrlID = -1;
             
-            for (Endereco e : end.listar())
+            end.inserir(element.getEndereco());
+                
+            /*for (Endereco e : end.listar())
             {
                 if (e.equals(element.getEndereco()))
                 {
                     EndID = element.getEndereco().getID();
                     break;
                 }
-            }
+            }*/
             
-            if (EndID == -1)
+            /*if (end.listar().isEmpty())
             {
                 end.inserir(element.getEndereco());
                 
@@ -56,8 +57,19 @@ public class UsuarioDAO extends DAO<Usuario>{
                     }
                 }
             }
+            else
+            {                           
+                for (Endereco e : end.listar())
+                {
+                    if (e.equals(element.getEndereco()))
+                    {
+                        EndID = element.getEndereco().getID();
+                        break;
+                    }
+                }
+            }*/
             
-            if (pfl.listar().isEmpty())
+           /* if (pfl.listar().isEmpty())
             {
                 Perfil p = new Perfil();
                 Questionario q = new Questionario();
@@ -74,7 +86,7 @@ public class UsuarioDAO extends DAO<Usuario>{
                     PrlID = p.getID();
                     break;
                 }
-            }
+            }*/
             
             String comando = "insert into usuario (nome, cpf, rg, datanascimento, sexo, email, id_endereco, id_perfil) values (?,?,?,?,?,?,?,?);";
             
@@ -87,8 +99,8 @@ public class UsuarioDAO extends DAO<Usuario>{
             stmt.setDate(4, element.getDtNasc());
             stmt.setString(5, element.getSexo());
             stmt.setString(6, element.getEmail());
-            stmt.setInt(7, EndID);
-            stmt.setInt(8, PrlID);
+            stmt.setInt(7, 4);
+            stmt.setInt(8, 0);
             
             
             int linhas = stmt.executeUpdate();

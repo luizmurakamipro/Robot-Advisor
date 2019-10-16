@@ -89,13 +89,6 @@ public class Usuario
     }
 
     public String getEmail() {
-        
-        if (getEmail().equals("")){
-         System.out.printf("Necessario todos os campos preenchidos");
-           }else{
-           System.out.printf("Necessario todos os campos preenchidos");
-                }
-        
         return Email;
     }
 
