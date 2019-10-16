@@ -17,17 +17,8 @@ public class Relatorio extends javax.swing.JFrame {
     /**
      * Creates new form Relatorio
      */
-    public List<Dados> Relatorio() {
-        List<Dados> lstDados = new LinkedList<>();
-        lstDados = ObservableCollections.observableList(lstDados);
-        
-        String "SELECT * from dados";
-        
-      try{
-          Statement stmt = conn.CreateStatement();
-          ResulList rl = stmt.executeQuery(sql);
-          
-      }
+    public Relatorio() {
+
     }
 
     /**

@@ -6,7 +6,9 @@
 package Robot.Classes;
 
 import Robot.Classes.Endereco;
-import java.util.Date;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+import java.sql.Date;
 
 /**
  *
@@ -14,9 +16,43 @@ import java.util.Date;
  */
 public class Usuario 
 {   
+
+    private Integer ID;
+
+    public static final String PROP_ID = "ID";
+
+    public Integer getID() {
+        return ID;
+    }
+
+    public void setID(Integer ID) {
+        Integer oldID = this.ID;
+        this.ID = ID;
+        propertyChangeSupport.firePropertyChange(PROP_ID, oldID, ID);
+    }
+
+    private transient final PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
+
+    public void addPropertyChangeListener(PropertyChangeListener listener) {
+        propertyChangeSupport.addPropertyChangeListener(listener);
+    }
+
+    public void removePropertyChangeListener(PropertyChangeListener listener) {
+        propertyChangeSupport.removePropertyChangeListener(listener);
+    }
+
     private String Nome, RG, CPF, Email, Sexo;
     private Date DataNascimento;
     private Endereco EnderecoUsuario;
+    private Perfil PerfilUsuario;
+
+    public Perfil getPerfil() {
+        return PerfilUsuario;
+    }
+
+    public void setPerfil(Perfil PerfilUsuario) {
+        this.PerfilUsuario = PerfilUsuario;
+    }
 
     public String getNome() {
         return Nome;
