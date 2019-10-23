@@ -45,6 +45,10 @@ public class Usuario
     private Date DataNascimento;
     private Endereco EnderecoUsuario;
     private Perfil PerfilUsuario;
+    
+    private String logradoura,  pais, uf, Sexo;
+    private int numero,cep;
+   
 
     public Perfil getPerfil() {
         return PerfilUsuario;

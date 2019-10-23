@@ -87,20 +87,22 @@ public class UsuarioDAO extends DAO<Usuario>{
                     break;
                 }
             }*/
-            
-            String comando = "insert into usuario (nome, cpf, rg, datanascimento, sexo, email, id_endereco, id_perfil) values (?,?,?,?,?,?,?,?);";
+            String comando = "insert into endereco (id_endereco, logradoura, numero, pais, uf, cep)  values (?, ?, ?, ?, ?, ?);"
+            //String comando = "insert into usuario (nome, cpf, rg, datanascimento, sexo, email, id_endereco, id_perfil) values (?,?,?,?,?,?,?,?);";
             
             PreparedStatement stmt = conn.prepareStatement(
                                 comando,Statement.RETURN_GENERATED_KEYS);
-            
             stmt.setString(1, element.getNome());
-            stmt.setString(2, element.getCPF());
+            /*
+            //stmt.setString(1, element.getNome());
+            //stmt.setString(2, element.getCPF());
             stmt.setString(3, element.getRG());        
             stmt.setDate(4, element.getDtNasc());
-            stmt.setString(5, element.getSexo());
+            //stmt.setString(5, element.getSexo());
             stmt.setString(6, element.getEmail());
             stmt.setInt(7, 4);
             stmt.setInt(8, 0);
+*/
             
             
             int linhas = stmt.executeUpdate();
