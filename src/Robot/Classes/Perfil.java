@@ -13,7 +13,6 @@ import java.beans.PropertyChangeSupport;
  * @author Luiz Paulo
  */
 public class Perfil  {
-    private Usuario pUsuario;
     private String TipoPerfil;
     private Questionario pQuestionario;
     
@@ -39,16 +38,6 @@ public class Perfil  {
 
     public void removePropertyChangeListener(PropertyChangeListener listener) {
         propertyChangeSupport.removePropertyChangeListener(listener);
-    }
-
-    public void setUsuario(Usuario u)
-    {
-        pUsuario = u;
-    }
-    
-    public Usuario getUsuario()
-    {
-        return pUsuario;
     }
     
     public Questionario getQuestionario() {

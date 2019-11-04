@@ -45,8 +45,6 @@ public class Endereco {
         return true;
     }
 
-   
-    
     private Integer ID;
 
     public static final String PROP_ID = "ID";
@@ -71,8 +69,15 @@ public class Endereco {
         propertyChangeSupport.removePropertyChangeListener(listener);
     }
 
-    private String Logradouro, CEP, UF, Bairro, Numero, Pais;
+    private String Logradouro, CEP, UF, Bairro, Numero, Pais, Cidade;
 
+    public String getCidade() {
+        return Cidade;
+    }
+
+    public void setCidade(String Cidade) {
+        this.Cidade = Cidade;
+    }
 
     public String getBairro() {
         return Bairro;

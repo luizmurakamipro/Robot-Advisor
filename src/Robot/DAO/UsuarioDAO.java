@@ -7,14 +7,12 @@ package Robot.DAO;
 
 import Robot.Classes.Endereco;
 import Robot.Classes.Perfil;
-import Robot.Classes.Questionario;
 import Robot.Classes.Usuario;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.Timestamp;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 import org.jdesktop.observablecollections.ObservableCollections;
 
@@ -25,70 +23,27 @@ import org.jdesktop.observablecollections.ObservableCollections;
 public class UsuarioDAO extends DAO<Usuario>{
 
     @Override
-    public boolean inserir(Usuario element) {
+    public boolean inserir(Usuario element) 
+    {
         try
         {              
-            EnderecoDAO end = new EnderecoDAO();
-            //PerfilDAO pfl = new PerfilDAO();
+            EnderecoDAO ed = new EnderecoDAO();
+            Endereco e = element.getEndereco();
             
-            int EndID = -1;
-            
-            end.inserir(element.getEndereco());
-                
-            /*for (Endereco e : end.listar())
-            {
-                if (e.equals(element.getEndereco()))
-                {
-                    EndID = element.getEndereco().getID();
-                    break;
-                }
-            }*/
-            
-            /*if (end.listar().isEmpty())
-            {
-                end.inserir(element.getEndereco());
-                
-                for (Endereco e : end.listar())
-                {
-                    if (e.equals(element.getEndereco()))
-                    {
-                        EndID = element.getEndereco().getID();
-                        break;
-                    }
-                }
-            }
+            if (e.getID() == null)
+                ed.inserir(e);
             else
-            {                           
-                for (Endereco e : end.listar())
-                {
-                    if (e.equals(element.getEndereco()))
-                    {
-                        EndID = element.getEndereco().getID();
-                        break;
-                    }
-                }
-            }*/
+                ed.alterar(e);
             
-           /* if (pfl.listar().isEmpty())
-            {
-                Perfil p = new Perfil();
-                Questionario q = new Questionario();
-                p.setTipoPerfil("Nenhum");
-                p.setQuestionario(q);
-                
-                pfl.inserir(p);
-            }
+            PerfilDAO pd = new PerfilDAO();
+            Perfil p = element.getPerfil();
             
-            for (Perfil p : pfl.listar())
-            {
-                if (p.getID() != null)
-                {
-                    PrlID = p.getID();
-                    break;
-                }
-            }*/
+            if (p.getID() == null)
+                pd.inserir(p);
+            else
+                pd.alterar(p);
             
-            String comando = "insert into usuario (nome, cpf, rg, datanascimento, sexo, email, id_endereco, id_perfil) values (?,?,?,?,?,?,?,?);";
+            String comando = "insert into usuario (nome, cpf, rg, datanascimento, sexo, email, login, senha, id_endereco, id_perfil) values (?,?,?,?,?,?,?,?,?,?);";
             
             PreparedStatement stmt = conn.prepareStatement(
                                 comando,Statement.RETURN_GENERATED_KEYS);
@@ -99,26 +54,61 @@ public class UsuarioDAO extends DAO<Usuario>{
             stmt.setDate(4, element.getDtNasc());
             stmt.setString(5, element.getSexo());
             stmt.setString(6, element.getEmail());
-            stmt.setInt(7, 4);
-            stmt.setInt(8, 0);
-            
+            stmt.setString(7, element.getLogin());
+            stmt.setString(8, element.getSenha());
+            stmt.setInt(9, element.getEndereco().getID());
+            stmt.setInt(10, element.getPerfil().getID());  
             
             int linhas = stmt.executeUpdate();
-            if(linhas==1) {
+            
+            if(linhas == 1) 
+            {
                 ResultSet rs = stmt.getGeneratedKeys();
                 rs.next();
                 element.setID(rs.getInt(1));
                 return true;
             }
-        }catch(SQLException e){
-            System.out.println("erro ao inserir: "+ e.getMessage());
+        }catch(SQLException e)
+        {
+            System.out.println("erro ao inserir: " + e.getMessage());
         }
         return false;
     }
 
     @Override
-    public boolean alterar(Usuario element) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean alterar(Usuario element) 
+    {
+        try
+        {              
+            String comando = "update usuario (nome, cpf, rg, datanascimento, sexo, email, login, senha, id_endereco, id_perfil) values (?,?,?,?,?,?,?,?,?,?);";
+            
+            PreparedStatement stmt = conn.prepareStatement(
+                                comando,Statement.RETURN_GENERATED_KEYS);
+            
+            stmt.setString(1, element.getNome());
+            stmt.setString(2, element.getCPF());
+            stmt.setString(3, element.getRG());        
+            stmt.setDate(4, element.getDtNasc());
+            stmt.setString(5, element.getSexo());
+            stmt.setString(6, element.getEmail());
+            stmt.setString(7, element.getLogin());
+            stmt.setString(8, element.getSenha());
+            stmt.setInt(9, element.getEndereco().getID());
+            stmt.setInt(10, element.getPerfil().getID());  
+            
+            int linhas = stmt.executeUpdate();
+            
+            if(linhas == 1) 
+            {
+                ResultSet rs = stmt.getGeneratedKeys();
+                rs.next();
+                return true;
+            }
+        }catch(SQLException e)
+        {
+            System.out.println("erro ao alterar: " + e.getMessage());
+        }
+        return false;
     }
 
     @Override
@@ -127,55 +117,40 @@ public class UsuarioDAO extends DAO<Usuario>{
     }
 
     @Override
-    public List<Usuario> listar() {
-        List<Usuario> pUser = new LinkedList<>();
+    public List<Usuario> listar() 
+    {
+        List<Usuario> pUser = new ArrayList<>();
         pUser = ObservableCollections.observableList(pUser);
         
         String sql = "SELECT * FROM usuario;";
-        try{
+        try
+        {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
-            while(rs.next()){
+            
+            PerfilDAO pd = new PerfilDAO();
+            EnderecoDAO ed = new EnderecoDAO();
+            
+            while(rs.next())
+            {
                 Usuario c = new Usuario();
-                c.setID(rs.getInt("id"));
+                c.setID(rs.getInt("id_usuario"));
                 c.setNome(rs.getString("nome"));
                 c.setCPF(rs.getString("cpf"));
                 c.setRG(rs.getString("rg"));
                 c.setDtNasc(rs.getDate("datanascimento"));
                 c.setEmail(rs.getString("email"));
-                
-                EnderecoDAO end = new EnderecoDAO();
-                Endereco End = new Endereco();
-
-                for (Endereco e : end.listar())
-                {
-                    if (e.getID() == rs.getInt("id_endereco"))
-                    {
-                        End = e;
-                        break;
-                    }
-                }
-                c.setEndereco(End);
-                
-                PerfilDAO pfl = new PerfilDAO();
-                Perfil Prl = new Perfil();
-                
-                for (Perfil i : pfl.listar())
-                {
-                    if (i.getID() == rs.getInt("id_perfil"))
-                    {
-                        Prl = i;
-                        break;
-                    }
-                }
-                
-                c.setPerfil(Prl);
+                c.setLogin(rs.getString("login"));
+                c.setSenha(rs.getString("senha"));
+                c.setEndereco(ed.getById(rs.getInt("id_endereco")));
+                c.setPerfil(pd.getById(rs.getInt("id_perfil")));
                 
                 pUser.add(c);
             }
             
-        }catch(SQLException e){
-            System.out.println("erro ao listar");
+        }catch(SQLException e)
+        {
+            System.out.println("erro ao listar: " + e.getMessage());
         }
         return pUser;
     } 

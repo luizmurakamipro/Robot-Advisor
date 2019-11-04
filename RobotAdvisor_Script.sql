@@ -3,21 +3,23 @@ use robot;
 
 create table Endereco (
 	ID_Endereco integer not null auto_increment,
-    Logradoura varchar(45) not null,
-    Numero varchar(45) not null,
-    Pais varchar(45) not null,
-    UF varchar(45) not null,
-    CEP varchar(45) not null,
+    Logradouro varchar(100),
+    Bairro varchar(100),
+    Cidade varchar(100),
+    Numero varchar(100),
+    Pais varchar(100),
+    UF varchar(100),
+    CEP varchar(100) not null,
     constraint PK_Endereco primary key (ID_Endereco)
 ) Engine = InnoDB;
 
 create table Agencia (
 	ID_Agencia integer not null auto_increment,
-    RazaoSocial varchar(45) not null,
-    Email varchar(45),
-    Contato varchar(45) not null,
-    CNPJ varchar(45) not null,
-    TipoServico varchar(45) not null,
+    RazaoSocial varchar(100),
+    Email varchar(100),
+    Contato varchar(100),
+    CNPJ varchar(100),
+    TipoServico varchar(100),
     ID_Endereco integer not null,
     constraint PK_Agencia primary key (ID_Agencia),
     constraint FK_Agencia_Endereco foreign key (ID_Endereco)
@@ -26,14 +28,14 @@ create table Agencia (
 
 create table Questionario (
 	ID_Questionario integer not null auto_increment,
-    Perguntas varchar(45) not null,
-    Respostas integer not null,
+    Perguntas varchar(100),
+    Respostas integer,
     constraint PK_Questionario primary key (ID_Questionario)
 ) Engine = InnoDB;
 
 create table Perfil (
 	ID_Perfil integer not null auto_increment,
-    TipoPerfil varchar(45),
+    TipoPerfil varchar(100),
     ID_Questionario integer not null,
     constraint PK_Perfil primary key (ID_Perfil),
     constraint FK_Perfil_Questionario foreign key (ID_Questionario)
@@ -42,11 +44,11 @@ create table Perfil (
 
 create table Investimento (
 	ID_Investimento integer not null auto_increment,
-    TipoInvestimento varchar(45) not null,
-    Dicas varchar(45),
+    TipoInvestimento varchar(100),
+    Dicas varchar(100),
     Valores float,
-    Opcoes varchar(45),
-    Informacoes varchar(45),
+    Opcoes varchar(100),
+    Informacoes varchar(100),
     ID_Perfil integer not null,
     ID_Agencia integer not null,
     constraint PK_Investimento primary key (ID_Investimento),
@@ -58,12 +60,14 @@ create table Investimento (
 
 create table Usuario (
 	ID_Usuario integer not null auto_increment,
-    Nome varchar(45) not null,
-    CPF varchar(45) not null,
-    RG varchar(45) not null,
-    DataNascimento date not null,
-    Sexo varchar(45) not null,
-    Email varchar(45),
+    Nome varchar(100),
+    CPF varchar(100),
+    RG varchar(100),
+    DataNascimento date,
+    Sexo varchar(100),
+    Email varchar(100),
+    Login varchar(100) not null,
+    Senha varchar(100) not null,
     ID_Endereco integer not null,
     ID_Perfil integer not null,
     constraint PK_Usuario primary key (ID_Usuario),
@@ -74,3 +78,4 @@ create table Usuario (
 ) Engine = InnoDB;
 
 select * from usuario;
+select * from endereco;

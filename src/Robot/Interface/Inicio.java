@@ -8,6 +8,7 @@ package Robot.Interface;
 import java.awt.Color;
 import java.awt.Container;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -39,6 +40,7 @@ public class Inicio extends JFrame {
         btnEntrar = new javax.swing.JButton();
         btnEsqueci = new javax.swing.JButton();
         btnEsqueci1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Robot Advisor");
@@ -61,11 +63,13 @@ public class Inicio extends JFrame {
         pnlUsuario.setLayout(pnlUsuarioLayout);
         pnlUsuarioLayout.setHorizontalGroup(
             pnlUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtUsuario, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(pnlUsuarioLayout.createSequentialGroup()
+                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         pnlUsuarioLayout.setVerticalGroup(
             pnlUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+            .addComponent(txtUsuario, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pnlSenha.setBackground(new java.awt.Color(128, 128, 128));
@@ -77,11 +81,13 @@ public class Inicio extends JFrame {
         pnlSenha.setLayout(pnlSenhaLayout);
         pnlSenhaLayout.setHorizontalGroup(
             pnlSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtSenha, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(pnlSenhaLayout.createSequentialGroup()
+                .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         pnlSenhaLayout.setVerticalGroup(
             pnlSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+            .addComponent(txtSenha)
         );
 
         btnEntrar.setBackground(new java.awt.Color(0, 51, 255));
@@ -114,82 +120,81 @@ public class Inicio extends JFrame {
             }
         });
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Robot/Imagem/iconUser.png"))); // NOI18N
+
         javax.swing.GroupLayout pnlLoginLayout = new javax.swing.GroupLayout(pnlLogin);
         pnlLogin.setLayout(pnlLoginLayout);
         pnlLoginLayout.setHorizontalGroup(
             pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlLoginLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(pnlUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnEntrar, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
-                        .addComponent(pnlSenha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(pnlLoginLayout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(btnEsqueci1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(pnlUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlLoginLayout.createSequentialGroup()
+                        .addComponent(btnEsqueci, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnEsqueci1))
+                    .addComponent(pnlSenha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnEntrar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(pnlLoginLayout.createSequentialGroup()
-                .addGap(317, 317, 317)
-                .addComponent(btnEsqueci, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(317, Short.MAX_VALUE))
+                .addGap(160, 160, 160)
+                .addComponent(jLabel1)
+                .addContainerGap(160, Short.MAX_VALUE))
         );
         pnlLoginLayout.setVerticalGroup(
             pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlLoginLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(70, 70, 70)
+                .addComponent(jLabel1)
+                .addGap(55, 55, 55)
                 .addComponent(pnlUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addComponent(btnEsqueci1)
-                .addGap(18, 18, 18)
-                .addComponent(btnEsqueci)
-                .addGap(36, 36, 36))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEsqueci)
+                    .addComponent(btnEsqueci1))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(pnlLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(pnlLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        
-
-         if (txtUsuario.getText().equals("")){
-         System.out.printf("Necessario todos os campos preenchidos");
-           }else{
-          new Principal().setVisible(true);
-          this.dispose();
-                }          
-       
-        
-    }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void btnEsqueci1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEsqueci1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEsqueci1ActionPerformed
 
     private void btnEsqueciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEsqueciActionPerformed
-         new Cadastro().setVisible(true);
-          this.dispose();
+        new Cadastro().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnEsqueciActionPerformed
 
+    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
+
+        if (txtUsuario.getText().equals("") || txtSenha.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Preencha todos os campos!","ERRO", JOptionPane.OK_OPTION);
+        }else{
+            new Principal().setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_btnEntrarActionPerformed
+
     private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
-       
+
     }//GEN-LAST:event_txtUsuarioActionPerformed
 
     /**
@@ -235,6 +240,7 @@ public class Inicio extends JFrame {
     private javax.swing.JButton btnEntrar;
     private javax.swing.JButton btnEsqueci;
     private javax.swing.JButton btnEsqueci1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel pnlLogin;
     private javax.swing.JPanel pnlSenha;
     private javax.swing.JPanel pnlUsuario;

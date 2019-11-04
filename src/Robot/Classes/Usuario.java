@@ -9,6 +9,7 @@ import Robot.Classes.Endereco;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.sql.Date;
+import java.util.Objects;
 
 /**
  *
@@ -41,7 +42,23 @@ public class Usuario
         propertyChangeSupport.removePropertyChangeListener(listener);
     }
 
-    private String Nome, RG, CPF, Email, Sexo;
+    private String Nome, RG, CPF, Email, Sexo, Login, Senha;
+
+    public String getLogin() {
+        return Login;
+    }
+
+    public void setLogin(String Login) {
+        this.Login = Login;
+    }
+
+    public String getSenha() {
+        return Senha;
+    }
+
+    public void setSenha(String Senha) {
+        this.Senha = Senha;
+    }
     private Date DataNascimento;
     private Endereco EnderecoUsuario;
     private Perfil PerfilUsuario;
@@ -112,6 +129,35 @@ public class Usuario
     public Endereco getEndereco()
     {
         return this.EnderecoUsuario;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 89 * hash + Objects.hashCode(this.RG);
+        hash = 89 * hash + Objects.hashCode(this.CPF);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Usuario other = (Usuario) obj;
+        if (!Objects.equals(this.RG, other.RG)) {
+            return false;
+        }
+        if (!Objects.equals(this.CPF, other.CPF)) {
+            return false;
+        }
+        return true;
     }
     
 }
