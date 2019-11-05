@@ -46,7 +46,7 @@ public class Usuario
     private Endereco EnderecoUsuario;
     private Perfil PerfilUsuario;
     
-    private String logradoura,  pais, uf, Sexo;
+    private String logradoura,  pais, uf, sexo;
     private int numero,cep;
    
 
