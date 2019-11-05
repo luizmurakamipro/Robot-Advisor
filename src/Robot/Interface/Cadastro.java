@@ -82,6 +82,7 @@ public class Cadastro extends javax.swing.JFrame {
         cbPais = new javax.swing.JComboBox<>();
         lblCidNasc = new javax.swing.JLabel();
         txtCidNasc = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
         jpComplementares = new javax.swing.JPanel();
         lblBairro = new javax.swing.JLabel();
         txtBairro = new javax.swing.JTextField();
@@ -102,6 +103,7 @@ public class Cadastro extends javax.swing.JFrame {
         txtCep = new javax.swing.JTextField();
         lblUF = new javax.swing.JLabel();
         comUf = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         icone = new javax.swing.JLabel();
@@ -109,9 +111,9 @@ public class Cadastro extends javax.swing.JFrame {
         lblLogin = new javax.swing.JLabel();
         txtLogin = new javax.swing.JTextField();
         lblSenha = new javax.swing.JLabel();
-        txtSenha = new javax.swing.JTextField();
+        txtSenha = new javax.swing.JPasswordField();
         lblConfSenha = new javax.swing.JLabel();
-        txtConfSenha = new javax.swing.JTextField();
+        txtConfSenha = new javax.swing.JPasswordField();
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -221,6 +223,8 @@ public class Cadastro extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Robot/Imagem/iconCad.png"))); // NOI18N
+
         javax.swing.GroupLayout jPDadosPessoaisLayout = new javax.swing.GroupLayout(jPDadosPessoais);
         jPDadosPessoais.setLayout(jPDadosPessoaisLayout);
         jPDadosPessoaisLayout.setHorizontalGroup(
@@ -273,16 +277,21 @@ public class Cadastro extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPDadosPessoaisLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addGap(316, 316, 316))
         );
         jPDadosPessoaisLayout.setVerticalGroup(
             jPDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPDadosPessoaisLayout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPDadosPessoaisLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel2))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNome)
                     .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -314,7 +323,7 @@ public class Cadastro extends javax.swing.JFrame {
                     .addComponent(cbPais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCidNasc)
                     .addComponent(txtCidNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addGap(44, 44, 44))
         );
 
         jTabbedPanCadPessoal.addTab("Dados Pessoais", jPDadosPessoais);
@@ -378,6 +387,8 @@ public class Cadastro extends javax.swing.JFrame {
 
         comUf.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
 
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Robot/Imagem/Comp.png"))); // NOI18N
+
         javax.swing.GroupLayout jpComplementaresLayout = new javax.swing.GroupLayout(jpComplementares);
         jpComplementares.setLayout(jpComplementaresLayout);
         jpComplementaresLayout.setHorizontalGroup(
@@ -426,13 +437,19 @@ public class Cadastro extends javax.swing.JFrame {
                                         .addComponent(lblNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 128, Short.MAX_VALUE))
+            .addGroup(jpComplementaresLayout.createSequentialGroup()
+                .addGap(336, 336, 336)
+                .addComponent(jLabel4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jpComplementaresLayout.setVerticalGroup(
             jpComplementaresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpComplementaresLayout.createSequentialGroup()
                 .addComponent(Icone)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
                 .addGroup(jpComplementaresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblLogradouro, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtLogradouro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -467,7 +484,7 @@ public class Cadastro extends javax.swing.JFrame {
                         .addComponent(txtTel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lblCelular))
                     .addComponent(txtCelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(40, 40, 40))
         );
 
         jTabbedPanCadPessoal.addTab("Dados Complementares", jpComplementares);
@@ -514,10 +531,20 @@ public class Cadastro extends javax.swing.JFrame {
         lblConfSenha.setForeground(new java.awt.Color(255, 255, 255));
         lblConfSenha.setText("CONFIRMAR SENHA:");
 
+        txtConfSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtConfSenhaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(343, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(330, 330, 330))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(155, 155, 155)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -526,14 +553,10 @@ public class Cadastro extends javax.swing.JFrame {
                     .addComponent(lblConfSenha))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtLogin, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtSenha)
-                    .addComponent(txtConfSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
-                    .addComponent(txtLogin, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap(265, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(330, 330, 330))
+                    .addComponent(txtConfSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -550,9 +573,9 @@ public class Cadastro extends javax.swing.JFrame {
                     .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtConfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblConfSenha))
-                .addContainerGap(98, Short.MAX_VALUE))
+                    .addComponent(lblConfSenha)
+                    .addComponent(txtConfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
 
         jTabbedPanCadPessoal.addTab("Login", jPanel3);
@@ -574,8 +597,8 @@ public class Cadastro extends javax.swing.JFrame {
         jpCadastroLayout.setVerticalGroup(
             jpCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpCadastroLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPanCadPessoal, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jTabbedPanCadPessoal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jpCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -596,127 +619,6 @@ public class Cadastro extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
-       try
-       {
-            Usuario u = new Usuario();
-            Endereco e = new Endereco();
-            Perfil p = new Perfil();
-            
-            u.setNome(txtNome.getText());
-            u.setCPF(txtCpf.getText());//.replaceAll("[^0-9]", ""));
-            u.setRG(txtRg.getText());//.replaceAll("[^0-9]", ""));
-            u.setEmail(txtEmail.getText());
-            StringToDate td = new StringToDate();
-            u.setDtNasc(td.convertReverse(txtDnasc.getText()));
-
-            u.setSexo(btnMasculino.isSelected() == true ? "Masculino" : btnFeminino.isSelected() == true ? "Feminino" : "Não definido");
-
-            e.setCEP(txtCep.getText());//.replaceAll("[^0-9]", ""));
-            e.setBairro(txtBairro.getText());
-            e.setCidade(txtCidade.getText());
-            e.setLogradouro(txtLogradouro.getText());
-            e.setNumero(txtNumero.getText());
-            e.setUF(comUf.getSelectedItem().toString());
-            e.setPais(cbPais.getSelectedItem().toString());
-            u.setEndereco(e);
-            
-            p.setTipoPerfil("Nenhum");
-            p.setQuestionario(new Questionario());
-            u.setPerfil(p);
-            
-            u.setLogin(txtLogin.getText());
-            
-            if (txtSenha.getText().equals(txtConfSenha.getText()))
-                u.setSenha(txtSenha.getText());
-            else
-                throw new Exception();
-
-            UsuarioDAO cd = new UsuarioDAO();
-            
-            if (u.getID() == null)
-                cd.inserir(u);
-            else
-                cd.alterar(u);
-            
-            JOptionPane.showMessageDialog(null,"Seu cadastro " + txtNome.getText() + " foi concluído com sucesso!","SUCESSO", JOptionPane.INFORMATION_MESSAGE);
-            
-            new Inicio().setVisible(true);
-            this.dispose();
-       }
-       catch (Exception e)
-       {
-           JOptionPane.showMessageDialog(null,"Tem algo de errado nas suas informações","ERRO", JOptionPane.OK_OPTION);
-           System.out.printf("Erro ao cadastrar: %s", e.getMessage());
-       }
-    }//GEN-LAST:event_btCadastrarActionPerformed
-
-    private void txtDnascKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDnascKeyReleased
-        bDataNascimento = txtDnasc.getText().length() == 10 ? txtDnasc.getText() : bDataNascimento;
-
-        if (txtDnasc.getText().length() > 10)
-        txtDnasc.setText(bDataNascimento);
-
-        if (txtDnasc.getText().length() > 0 && evt.getKeyCode() != KeyEvent.VK_BACK_SPACE)
-        {
-            switch (txtDnasc.getText().length())
-            {
-                case 2:
-                case 5:
-                txtDnasc.setText(txtDnasc.getText() + "/");
-                break;
-            }
-        }
-    }//GEN-LAST:event_txtDnascKeyReleased
-
-    private void txtCpfKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCpfKeyReleased
-        bCPF = txtCpf.getText().length() == 14 ? txtCpf.getText() : bCPF;
-
-        if (txtCpf.getText().length() > 14)
-        txtCpf.setText(bCPF);
-
-        if (txtCpf.getText().length() > 0 && evt.getKeyCode() != KeyEvent.VK_BACK_SPACE)
-        {
-            switch (txtCpf.getText().length())
-            {
-                case 3:
-                case 7:
-                txtCpf.setText(txtCpf.getText() + ".");
-                break;
-
-                case 11:
-                txtCpf.setText(txtCpf.getText() + "-");
-                break;
-            }
-        }
-    }//GEN-LAST:event_txtCpfKeyReleased
-
-    private void txtRgKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRgKeyReleased
-        bRG = txtRg.getText().length() == 12 ? txtRg.getText() : bRG;
-
-        if (txtRg.getText().length() > 12)
-        txtRg.setText(bRG);
-
-        if (txtRg.getText().length() > 0 && evt.getKeyCode() != KeyEvent.VK_BACK_SPACE)
-        {
-            switch (txtRg.getText().length())
-            {
-                case 2:
-                case 6:
-                txtRg.setText(txtRg.getText() + ".");
-                break;
-
-                case 10:
-                txtRg.setText(txtRg.getText() + "-");
-                break;
-            }
-        }
-    }//GEN-LAST:event_txtRgKeyReleased
-
-    private void txtCidNascKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCidNascKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCidNascKeyReleased
 
     private void txtCepKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCepKeyReleased
         bCEP = txtCep.getText().length() == 9 ? txtCep.getText() : bCEP;
@@ -793,10 +695,135 @@ public class Cadastro extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtTelKeyReleased
 
+    private void txtCidNascKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCidNascKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCidNascKeyReleased
+
+    private void txtDnascKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDnascKeyReleased
+        bDataNascimento = txtDnasc.getText().length() == 10 ? txtDnasc.getText() : bDataNascimento;
+
+        if (txtDnasc.getText().length() > 10)
+        txtDnasc.setText(bDataNascimento);
+
+        if (txtDnasc.getText().length() > 0 && evt.getKeyCode() != KeyEvent.VK_BACK_SPACE)
+        {
+            switch (txtDnasc.getText().length())
+            {
+                case 2:
+                case 5:
+                txtDnasc.setText(txtDnasc.getText() + "/");
+                break;
+            }
+        }
+    }//GEN-LAST:event_txtDnascKeyReleased
+
+    private void txtCpfKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCpfKeyReleased
+        bCPF = txtCpf.getText().length() == 14 ? txtCpf.getText() : bCPF;
+
+        if (txtCpf.getText().length() > 14)
+        txtCpf.setText(bCPF);
+
+        if (txtCpf.getText().length() > 0 && evt.getKeyCode() != KeyEvent.VK_BACK_SPACE)
+        {
+            switch (txtCpf.getText().length())
+            {
+                case 3:
+                case 7:
+                txtCpf.setText(txtCpf.getText() + ".");
+                break;
+
+                case 11:
+                txtCpf.setText(txtCpf.getText() + "-");
+                break;
+            }
+        }
+    }//GEN-LAST:event_txtCpfKeyReleased
+
+    private void txtRgKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRgKeyReleased
+        bRG = txtRg.getText().length() == 12 ? txtRg.getText() : bRG;
+
+        if (txtRg.getText().length() > 12)
+        txtRg.setText(bRG);
+
+        if (txtRg.getText().length() > 0 && evt.getKeyCode() != KeyEvent.VK_BACK_SPACE)
+        {
+            switch (txtRg.getText().length())
+            {
+                case 2:
+                case 6:
+                txtRg.setText(txtRg.getText() + ".");
+                break;
+
+                case 10:
+                txtRg.setText(txtRg.getText() + "-");
+                break;
+            }
+        }
+    }//GEN-LAST:event_txtRgKeyReleased
+
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
         new Inicio().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btVoltarActionPerformed
+
+    private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
+        try
+        {
+            Usuario u = new Usuario();
+            Endereco e = new Endereco();
+            Perfil p = new Perfil();
+
+            u.setNome(txtNome.getText());
+            u.setCPF(txtCpf.getText());//.replaceAll("[^0-9]", ""));
+        u.setRG(txtRg.getText());//.replaceAll("[^0-9]", ""));
+        u.setEmail(txtEmail.getText());
+        StringToDate td = new StringToDate();
+        u.setDtNasc(td.convertReverse(txtDnasc.getText()));
+
+        u.setSexo(btnMasculino.isSelected() == true ? "Masculino" : btnFeminino.isSelected() == true ? "Feminino" : "Não definido");
+
+        e.setCEP(txtCep.getText());//.replaceAll("[^0-9]", ""));
+        e.setBairro(txtBairro.getText());
+        e.setCidade(txtCidade.getText());
+        e.setLogradouro(txtLogradouro.getText());
+        e.setNumero(txtNumero.getText());
+        e.setUF(comUf.getSelectedItem().toString());
+        e.setPais(cbPais.getSelectedItem().toString());
+        u.setEndereco(e);
+
+        p.setTipoPerfil("Nenhum");
+        p.setQuestionario(new Questionario());
+        u.setPerfil(p);
+
+        u.setLogin(txtLogin.getText());
+
+        if (txtSenha.getText().equals(txtConfSenha.getText()))//mascarar a senha
+        u.setSenha(txtSenha.getText());
+        else
+        throw new Exception();
+
+        UsuarioDAO cd = new UsuarioDAO();
+
+        if (u.getID() == null)
+        cd.inserir(u);
+        else
+        cd.alterar(u);
+
+        JOptionPane.showMessageDialog(null,"Seu cadastro " + txtNome.getText() + " foi concluído com sucesso!","SUCESSO", JOptionPane.INFORMATION_MESSAGE);
+
+        new Inicio().setVisible(true);
+        this.dispose();
+        }
+        catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(null,"Tem algo de errado nas suas informações","ERRO", JOptionPane.OK_OPTION);
+            System.out.printf("Erro ao cadastrar: %s", e.getMessage());
+        }
+    }//GEN-LAST:event_btCadastrarActionPerformed
+
+    private void txtConfSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtConfSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtConfSenhaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -847,6 +874,8 @@ public class Cadastro extends javax.swing.JFrame {
     private javax.swing.JLabel icone;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JList<String> jList1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JPanel jPDadosPessoais;
@@ -882,7 +911,7 @@ public class Cadastro extends javax.swing.JFrame {
     private javax.swing.JTextField txtCidNasc;
     private javax.swing.JTextField txtCidade;
     private javax.swing.JTextField txtComplemento;
-    private javax.swing.JTextField txtConfSenha;
+    private javax.swing.JPasswordField txtConfSenha;
     private javax.swing.JTextField txtCpf;
     private javax.swing.JTextField txtDnasc;
     private javax.swing.JTextField txtEmail;
@@ -891,7 +920,7 @@ public class Cadastro extends javax.swing.JFrame {
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtNumero;
     private javax.swing.JTextField txtRg;
-    private javax.swing.JTextField txtSenha;
+    private javax.swing.JPasswordField txtSenha;
     private javax.swing.JTextField txtTel;
     // End of variables declaration//GEN-END:variables
 }

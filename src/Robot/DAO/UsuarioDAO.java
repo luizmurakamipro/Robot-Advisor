@@ -43,7 +43,8 @@ public class UsuarioDAO extends DAO<Usuario>{
             else
                 pd.alterar(p);
             
-            String comando = "insert into usuario (nome, cpf, rg, datanascimento, sexo, email, login, senha, id_endereco, id_perfil) values (?,?,?,?,?,?,?,?,?,?);";
+            String comando = "insert into usuario (nome, cpf, rg, datanascimento, sexo, email, login, senha, id_endereco, id_perfil)"
+                    + " values (?,?,?,?,?,?,?,?,?,?);";
             
             PreparedStatement stmt = conn.prepareStatement(
                                 comando,Statement.RETURN_GENERATED_KEYS);

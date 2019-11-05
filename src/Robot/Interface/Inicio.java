@@ -36,7 +36,7 @@ public class Inicio extends JFrame {
         pnlUsuario = new javax.swing.JPanel();
         txtUsuario = new javax.swing.JTextField();
         pnlSenha = new javax.swing.JPanel();
-        txtSenha = new javax.swing.JTextField();
+        txtSenha = new javax.swing.JPasswordField();
         btnEntrar = new javax.swing.JButton();
         btnEsqueci = new javax.swing.JButton();
         btnEsqueci1 = new javax.swing.JButton();
@@ -47,10 +47,10 @@ public class Inicio extends JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         pnlLogin.setBackground(new java.awt.Color(128, 128, 128));
-        pnlLogin.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Login", 2, 0, new java.awt.Font("Tahoma", 1, 24), new java.awt.Color(240, 240, 240))); // NOI18N
+        pnlLogin.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Login", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 24), new java.awt.Color(240, 240, 240))); // NOI18N
 
         pnlUsuario.setBackground(new java.awt.Color(128, 128, 128));
-        pnlUsuario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Usuário", 1, 0, new java.awt.Font("Arial", 1, 18), new java.awt.Color(240, 240, 240))); // NOI18N
+        pnlUsuario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Usuário", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 18), new java.awt.Color(240, 240, 240))); // NOI18N
 
         txtUsuario.setBackground(new java.awt.Color(230, 230, 230));
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -73,21 +73,19 @@ public class Inicio extends JFrame {
         );
 
         pnlSenha.setBackground(new java.awt.Color(128, 128, 128));
-        pnlSenha.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Senha", 1, 0, new java.awt.Font("Arial", 1, 18), new java.awt.Color(240, 240, 240))); // NOI18N
-
-        txtSenha.setBackground(new java.awt.Color(230, 230, 230));
+        pnlSenha.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Senha", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 18), new java.awt.Color(240, 240, 240))); // NOI18N
 
         javax.swing.GroupLayout pnlSenhaLayout = new javax.swing.GroupLayout(pnlSenha);
         pnlSenha.setLayout(pnlSenhaLayout);
         pnlSenhaLayout.setHorizontalGroup(
             pnlSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlSenhaLayout.createSequentialGroup()
-                .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(txtSenha)
         );
         pnlSenhaLayout.setVerticalGroup(
             pnlSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtSenha)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSenhaLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         btnEntrar.setBackground(new java.awt.Color(0, 51, 255));
@@ -129,7 +127,7 @@ public class Inicio extends JFrame {
             .addGroup(pnlLoginLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(pnlUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(pnlUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 324, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlLoginLayout.createSequentialGroup()
                         .addComponent(btnEsqueci, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -244,7 +242,7 @@ public class Inicio extends JFrame {
     private javax.swing.JPanel pnlLogin;
     private javax.swing.JPanel pnlSenha;
     private javax.swing.JPanel pnlUsuario;
-    private javax.swing.JTextField txtSenha;
+    private javax.swing.JPasswordField txtSenha;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 

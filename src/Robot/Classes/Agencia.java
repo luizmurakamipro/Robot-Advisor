@@ -15,6 +15,8 @@ public class Agencia {
     private String Contato;
     private String CNPJ;
     private String TipoServico;
+    private Endereco enderecoAqgencia;
+    private Integer ID;
 
     public String getRazaoSocial() {
         return RazaoSocial;
@@ -55,6 +57,26 @@ public class Agencia {
     public void setTipoServico(String typeService) {
         this.TipoServico = typeService;
     }
+
+    public Endereco getEndereco() {
+        return enderecoAqgencia;
+    }
+
+    public void setEndereco(Endereco enderecoAqgencia) {
+        this.enderecoAqgencia = enderecoAqgencia;
+    }
+
+    public Integer getID() {
+        return ID;
+    }
+
+    public void setID(Integer ID) {
+        this.ID = ID;
+    }
+
+    
+
+    
     
     
 }
