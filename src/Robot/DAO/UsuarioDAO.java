@@ -44,7 +44,7 @@ public class UsuarioDAO extends DAO<Usuario>{
                     break;
                 }
             }
-             /* 
+             
             if (end.listar().isEmpty())
             {
                 end.inserir(element.getEndereco());
@@ -81,21 +81,20 @@ public class UsuarioDAO extends DAO<Usuario>{
                 
                 pfl.inserir(p);
             }
-            
+            /*
             for (Perfil p : pfl.listar())
             {
                 if (p.getID() != null)
                 {
-                    PrlID = p.getID();
+                    pfl = p.getID();
                     break;
                 }
-            }*/
+            */
             
             String comando = "insert into usuario (nome, cpf, rg, datanascimento, sexo, email, id_endereco, id_perfil) values (?,?,?,?,?,?,?,?);";
             System.out.println(element.getEndereco());
             PreparedStatement stmt = conn.prepareStatement(
                                 comando,Statement.RETURN_GENERATED_KEYS);
-           System.out.println(element.getID());
             stmt.setString(1, element.getNome());
             stmt.setString(2, element.getCPF());
             stmt.setString(3, element.getRG());        
@@ -107,8 +106,8 @@ public class UsuarioDAO extends DAO<Usuario>{
             stmt.setString(6, element.getEmail());
 
             
-            
             int linhas = stmt.executeUpdate();
+            
             if(linhas==1) {
 
                 ResultSet rs = stmt.getGeneratedKeys();
@@ -150,6 +149,7 @@ public class UsuarioDAO extends DAO<Usuario>{
                 c.setRG(rs.getString("rg"));
                 c.setDtNasc(rs.getDate("datanascimento"));
                 c.setEmail(rs.getString("email"));
+                
                 
                 EnderecoDAO end = new EnderecoDAO();
                 Endereco End = new Endereco();

@@ -69,6 +69,8 @@ public class EnderecoDAO extends DAO<Endereco>{
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             while(rs.next()){
+                
+                
                 Endereco c = new Endereco();
                 c.setID(rs.getInt("id"));
                 c.setLogradouro(rs.getString("logradouro"));
@@ -76,7 +78,7 @@ public class EnderecoDAO extends DAO<Endereco>{
                 c.setPais(rs.getString("pais"));
                 c.setUF(rs.getString("uf"));
                 c.setCEP(rs.getString("cep"));
-                
+                System.out.println(rs.getString("pais"));
                 pEnd.add(c);
             }
             

@@ -3,7 +3,7 @@ use robot;
 
 create table Endereco (
 	ID_Endereco integer not null auto_increment,
-    Logradoura varchar(45) not null,
+    Logradouro varchar(45) not null,
     Numero varchar(45) not null,
     Pais varchar(45) not null,
     UF varchar(45) not null,

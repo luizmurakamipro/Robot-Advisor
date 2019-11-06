@@ -18,7 +18,7 @@ import java.sql.Date;
 public class Usuario 
 {   
 
-    private Integer ID =1;
+    private Integer ID;
 
     public static final String PROP_ID = "ID";
 
@@ -31,6 +31,7 @@ public class Usuario
         this.ID = ID;
         propertyChangeSupport.firePropertyChange(PROP_ID, oldID, ID);
         System.out.println(this.ID);
+        
     }
 
     private transient final PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
@@ -118,7 +119,7 @@ public class Usuario
     public Endereco getEndereco()
     {
         
-        System.out.println(this.EnderecoUsuario);
+       
         return this.EnderecoUsuario;
     }
     
