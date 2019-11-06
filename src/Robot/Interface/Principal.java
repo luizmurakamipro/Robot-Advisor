@@ -45,7 +45,7 @@ public class Principal extends javax.swing.JFrame {
         setTitle("Robot Advisor");
 
         Area.setBackground(new java.awt.Color(128, 128, 128));
-        Area.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ROBOT ADVISOR", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 24), new java.awt.Color(240, 240, 240))); // NOI18N
+        Area.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ROBOT ADVISOR", 2, 0, new java.awt.Font("Arial", 1, 24), new java.awt.Color(240, 240, 240))); // NOI18N
         Area.setToolTipText("");
         Area.setDoubleBuffered(true);
 
@@ -70,8 +70,8 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lblSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtSaldo, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(txtSaldo, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                .addGap(23, 23, 23))
         );
         jpSaldoLayout.setVerticalGroup(
             jpSaldoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -87,7 +87,7 @@ public class Principal extends javax.swing.JFrame {
         jpSaldo.setBounds(40, 40, 250, 42);
 
         jpEscolha.setBackground(new java.awt.Color(128, 128, 128));
-        jpEscolha.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "MENU", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        jpEscolha.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "MENU", 2, 0, new java.awt.Font("Arial", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 
         btnInvestir.setBackground(new java.awt.Color(0, 51, 255));
         btnInvestir.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
