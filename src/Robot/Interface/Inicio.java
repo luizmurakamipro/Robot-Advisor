@@ -173,7 +173,8 @@ public class Inicio extends JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEsqueci1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEsqueci1ActionPerformed
-        // TODO add your handling code here:
+        new RecuperSenha().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnEsqueci1ActionPerformed
 
     private void btnEsqueciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEsqueciActionPerformed
