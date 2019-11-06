@@ -101,7 +101,7 @@ public class Cadastro extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(128, 128, 128));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "CADASTRO", 2, 0, new java.awt.Font("Arial Black", 0, 14), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "CADASTRO", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Black", 0, 14), new java.awt.Color(255, 255, 255))); // NOI18N
 
         lblNome.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         lblNome.setForeground(new java.awt.Color(255, 255, 255));
@@ -129,7 +129,7 @@ public class Cadastro extends javax.swing.JFrame {
 
         lblEndereco.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         lblEndereco.setForeground(new java.awt.Color(255, 255, 255));
-        lblEndereco.setText("End.:");
+        lblEndereco.setText("Bairro");
 
         lblNumero.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         lblNumero.setForeground(new java.awt.Color(255, 255, 255));
@@ -141,7 +141,7 @@ public class Cadastro extends javax.swing.JFrame {
 
         lblBairro.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         lblBairro.setForeground(new java.awt.Color(255, 255, 255));
-        lblBairro.setText("Bairro:");
+        lblBairro.setText("end.");
 
         lblUF.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         lblUF.setForeground(new java.awt.Color(255, 255, 255));

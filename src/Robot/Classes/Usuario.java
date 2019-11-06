@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -17,7 +18,7 @@ import java.sql.Date;
 public class Usuario 
 {   
 
-    private Integer ID;
+    private Integer ID =1;
 
     public static final String PROP_ID = "ID";
 
@@ -29,6 +30,7 @@ public class Usuario
         Integer oldID = this.ID;
         this.ID = ID;
         propertyChangeSupport.firePropertyChange(PROP_ID, oldID, ID);
+        System.out.println(this.ID);
     }
 
     private transient final PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
@@ -46,7 +48,7 @@ public class Usuario
     private Endereco EnderecoUsuario;
     private Perfil PerfilUsuario;
     
-    private String logradoura,  pais, uf, sexo;
+    private String  pais, uf ;
     private int numero,cep;
    
 
@@ -115,6 +117,8 @@ public class Usuario
     
     public Endereco getEndereco()
     {
+        
+        System.out.println(this.EnderecoUsuario);
         return this.EnderecoUsuario;
     }
     

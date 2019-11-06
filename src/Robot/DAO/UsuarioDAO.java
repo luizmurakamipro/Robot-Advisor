@@ -29,27 +29,29 @@ public class UsuarioDAO extends DAO<Usuario>{
         try
         {              
             EnderecoDAO end = new EnderecoDAO();
-            //PerfilDAO pfl = new PerfilDAO();
-            
+            PerfilDAO pfl = new PerfilDAO();
             int EndID = -1;
             
             end.inserir(element.getEndereco());
+            System.out.println(element.getEndereco());
+              
+            for (Endereco e : end.listar())
                 
-            /*for (Endereco e : end.listar())
             {
                 if (e.equals(element.getEndereco()))
                 {
                     EndID = element.getEndereco().getID();
                     break;
                 }
-            }*/
-            
-            /*if (end.listar().isEmpty())
+            }
+             /* 
+            if (end.listar().isEmpty())
             {
                 end.inserir(element.getEndereco());
-                
+                System.out.println("if lista");
                 for (Endereco e : end.listar())
                 {
+                    System.out.println("for listar");
                     if (e.equals(element.getEndereco()))
                     {
                         EndID = element.getEndereco().getID();
@@ -67,9 +69,10 @@ public class UsuarioDAO extends DAO<Usuario>{
                         break;
                     }
                 }
-            }*/
+            }
             
-           /* if (pfl.listar().isEmpty())
+            
+            if (pfl.listar().isEmpty())
             {
                 Perfil p = new Perfil();
                 Questionario q = new Questionario();
@@ -87,32 +90,34 @@ public class UsuarioDAO extends DAO<Usuario>{
                     break;
                 }
             }*/
-            String comando = "insert into endereco (id_endereco, logradoura, numero, pais, uf, cep)  values (?, ?, ?, ?, ?, ?);"
-            //String comando = "insert into usuario (nome, cpf, rg, datanascimento, sexo, email, id_endereco, id_perfil) values (?,?,?,?,?,?,?,?);";
             
+            String comando = "insert into usuario (nome, cpf, rg, datanascimento, sexo, email, id_endereco, id_perfil) values (?,?,?,?,?,?,?,?);";
+            System.out.println(element.getEndereco());
             PreparedStatement stmt = conn.prepareStatement(
                                 comando,Statement.RETURN_GENERATED_KEYS);
+           System.out.println(element.getID());
             stmt.setString(1, element.getNome());
-            /*
-            //stmt.setString(1, element.getNome());
-            //stmt.setString(2, element.getCPF());
+            stmt.setString(2, element.getCPF());
             stmt.setString(3, element.getRG());        
             stmt.setDate(4, element.getDtNasc());
-            //stmt.setString(5, element.getSexo());
+            stmt.setString(5, element.getSexo());
             stmt.setString(6, element.getEmail());
-            stmt.setInt(7, 4);
-            stmt.setInt(8, 0);
-*/
+            stmt.setInt(7, element.getID());
+            stmt.setInt(8, element.getID());
+            stmt.setString(6, element.getEmail());
+
             
             
             int linhas = stmt.executeUpdate();
             if(linhas==1) {
+
                 ResultSet rs = stmt.getGeneratedKeys();
                 rs.next();
                 element.setID(rs.getInt(1));
                 return true;
             }
         }catch(SQLException e){
+
             System.out.println("erro ao inserir: "+ e.getMessage());
         }
         return false;
