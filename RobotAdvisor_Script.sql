@@ -68,6 +68,8 @@ create table Usuario (
     Email varchar(100),
     Login varchar(100) not null,
     Senha varchar(100) not null,
+    Saldo float,
+    Administrador bool not null,
     ID_Endereco integer not null,
     ID_Perfil integer not null,
     constraint PK_Usuario primary key (ID_Usuario),
