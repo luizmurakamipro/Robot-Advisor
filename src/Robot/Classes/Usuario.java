@@ -62,7 +62,25 @@ public class Usuario
     private Date DataNascimento;
     private Endereco EnderecoUsuario;
     private Perfil PerfilUsuario;
+    private double Saldo;
+    private Boolean Administrador;
 
+    public double getSaldo() {
+        return Saldo;
+    }
+
+    public void setSaldo(double Saldo) {
+        this.Saldo = Saldo;
+    }
+
+    public Boolean getAdministrador() {
+        return Administrador;
+    }
+
+    public void setAdministrador(Boolean Administrador) {
+        this.Administrador = Administrador;
+    }
+    
     public Perfil getPerfil() {
         return PerfilUsuario;
     }

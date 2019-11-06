@@ -5,8 +5,8 @@
  */
 package Robot.Interface;
 
-import java.awt.Color;
-import java.awt.Container;
+import Robot.Classes.Controle;
+import Robot.DAO.UsuarioDAO;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -47,10 +47,10 @@ public class Inicio extends JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         pnlLogin.setBackground(new java.awt.Color(128, 128, 128));
-        pnlLogin.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Login", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 24), new java.awt.Color(240, 240, 240))); // NOI18N
+        pnlLogin.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Login", 2, 0, new java.awt.Font("Tahoma", 1, 24), new java.awt.Color(240, 240, 240))); // NOI18N
 
         pnlUsuario.setBackground(new java.awt.Color(128, 128, 128));
-        pnlUsuario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Usuário", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 18), new java.awt.Color(240, 240, 240))); // NOI18N
+        pnlUsuario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Usuário", 1, 0, new java.awt.Font("Arial", 1, 18), new java.awt.Color(240, 240, 240))); // NOI18N
 
         txtUsuario.setBackground(new java.awt.Color(230, 230, 230));
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -64,8 +64,8 @@ public class Inicio extends JFrame {
         pnlUsuarioLayout.setHorizontalGroup(
             pnlUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlUsuarioLayout.createSequentialGroup()
-                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(txtUsuario)
+                .addGap(0, 0, 0))
         );
         pnlUsuarioLayout.setVerticalGroup(
             pnlUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -73,7 +73,7 @@ public class Inicio extends JFrame {
         );
 
         pnlSenha.setBackground(new java.awt.Color(128, 128, 128));
-        pnlSenha.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Senha", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 18), new java.awt.Color(240, 240, 240))); // NOI18N
+        pnlSenha.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Senha", 1, 0, new java.awt.Font("Arial", 1, 18), new java.awt.Color(240, 240, 240))); // NOI18N
 
         javax.swing.GroupLayout pnlSenhaLayout = new javax.swing.GroupLayout(pnlSenha);
         pnlSenha.setLayout(pnlSenhaLayout);
@@ -127,10 +127,10 @@ public class Inicio extends JFrame {
             .addGroup(pnlLoginLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(pnlUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 324, Short.MAX_VALUE)
+                    .addComponent(pnlUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlLoginLayout.createSequentialGroup()
                         .addComponent(btnEsqueci, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                         .addComponent(btnEsqueci1))
                     .addComponent(pnlSenha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnEntrar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -183,11 +183,33 @@ public class Inicio extends JFrame {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
 
-        if (txtUsuario.getText().equals("") || txtSenha.getText().equals("")){
+        if (txtUsuario.getText().equals("") || txtSenha.getText().equals(""))
             JOptionPane.showMessageDialog(null,"Preencha todos os campos!","ERRO", JOptionPane.OK_OPTION);
-        }else{
-            new Principal().setVisible(true);
-            this.dispose();
+        else
+        {
+            try
+            {
+                UsuarioDAO ud = new UsuarioDAO();
+                
+                if (ud.getLogin(txtUsuario.getText()) == true)
+                {
+                    if (ud.getSenha(txtSenha.getText()) == true)
+                    {  
+                        Controle.getInstancia().setUser(ud.getByLoginSenha(txtUsuario.getText(), txtSenha.getText()));
+                        new Principal().setVisible(true);
+                        this.dispose();
+                    }
+                    else
+                        throw new Exception();
+                }
+                else
+                    throw new Exception();
+            } 
+            catch (Exception e)
+            {
+                JOptionPane.showMessageDialog(null,"Tem algo de errado nas suas informações","ERRO", JOptionPane.OK_OPTION);
+                System.out.printf("Erro ao logar!");
+            }
         }
     }//GEN-LAST:event_btnEntrarActionPerformed
 

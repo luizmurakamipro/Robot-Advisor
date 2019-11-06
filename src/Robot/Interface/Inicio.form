@@ -61,10 +61,10 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="pnlUsuario" pref="324" max="32767" attributes="0"/>
+                      <Component id="pnlUsuario" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="btnEsqueci" min="-2" pref="147" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="30" max="32767" attributes="0"/>
                           <Component id="btnEsqueci1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Component id="pnlSenha" alignment="0" max="32767" attributes="0"/>
@@ -120,8 +120,8 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="txtUsuario" min="-2" pref="317" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="txtUsuario" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
