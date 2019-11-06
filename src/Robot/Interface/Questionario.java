@@ -5,6 +5,12 @@
  */
 package Robot.Interface;
 
+import Robot.Classes.Endereco;
+import Robot.Classes.Usuario;
+import Robot.DAO.QuestionarioDAO;
+import Robot.DAO.UsuarioDAO;
+import Robot.Utilidade.StringToDate;
+
 
 /**
  *
@@ -65,7 +71,7 @@ public class Questionario extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jpQuestionario.setBackground(new java.awt.Color(128, 128, 128));
-        jpQuestionario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Questionário", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Black", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        jpQuestionario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Questionário", 2, 0, new java.awt.Font("Arial Black", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
         jpQuestionario.setForeground(new java.awt.Color(255, 255, 255));
 
         lblP1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -90,6 +96,11 @@ public class Questionario extends javax.swing.JFrame {
         jbtnSim2.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         jbtnSim2.setForeground(new java.awt.Color(255, 255, 255));
         jbtnSim2.setText("Sim");
+        jbtnSim2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnSim2ActionPerformed(evt);
+            }
+        });
 
         jbtnNao2.setBackground(new java.awt.Color(128, 128, 128));
         jbtnNao2.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
@@ -269,26 +280,22 @@ public class Questionario extends javax.swing.JFrame {
                             .addGroup(jpQuestionarioLayout.createSequentialGroup()
                                 .addComponent(jbtnSim10)
                                 .addGap(32, 32, 32)
-                                .addComponent(jbtnNao10)))))
-                .addGap(0, 0, 0))
+                                .addComponent(jbtnNao10))))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpQuestionarioLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(lblP2)
+            .addComponent(lblP3)
+            .addComponent(lblP4)
             .addGroup(jpQuestionarioLayout.createSequentialGroup()
-                .addGroup(jpQuestionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblP2)
-                    .addComponent(lblP3)
-                    .addComponent(lblP4)
-                    .addGroup(jpQuestionarioLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jbtnSim1)
-                        .addGap(32, 32, 32)
-                        .addComponent(jbtnNao1))
-                    .addGroup(jpQuestionarioLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblP1)))
-                .addGap(0, 0, 0))
+                .addGap(30, 30, 30)
+                .addComponent(jbtnSim1)
+                .addGap(32, 32, 32)
+                .addComponent(jbtnNao1))
+            .addGroup(jpQuestionarioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblP1))
         );
         jpQuestionarioLayout.setVerticalGroup(
             jpQuestionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -363,21 +370,53 @@ public class Questionario extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(sclPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 745, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(sclPane, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(sclPane, javax.swing.GroupLayout.PREFERRED_SIZE, 636, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(sclPane, javax.swing.GroupLayout.PREFERRED_SIZE, 759, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-        // TODO add your handling code here:
+              try
+       {
+            Questionario q = new Questionario();
+            String s = "";
+            
+            s = jbtnSim1.isSelected() == true ? "Sim" : jbtnNao1.isSelected() == true ? "Sim" : "Não definido";
+      
+            s = jbtnSim2.isSelected() == true ? "Sim" : jbtnNao2.isSelected() == true ? "Sim" : "Não definido";
+            
+            s = jbtnSim3.isSelected() == true ? "Sim" : jbtnNao3.isSelected() == true ? "Sim" : "Não definido";
+            
+            s = jbtnSim4.isSelected() == true ? "Sim" : jbtnNao4.isSelected() == true ? "Sim" : "Não definido";
+            
+            s = jbtnSim6.isSelected() == true ? "Sim" : jbtnNao6.isSelected() == true ? "Sim" : "Não definido";
+            
+            s = jbtnSim7.isSelected() == true ? "Sim" : jbtnNao7.isSelected() == true ? "Sim" : "Não definido";
+            
+            s = jbtnSim8.isSelected() == true ? "Sim" : jbtnNao8.isSelected() == true ? "Sim" : "Não definido";
+            
+            QuestionarioDAO qd = new QuestionarioDAO();
+       }
+       catch (Exception e)
+       {
+           System.out.printf("Erro ao cadastrar: %s", e.getMessage());
+       }
+   
     }//GEN-LAST:event_btnEnviarActionPerformed
+
+    private void jbtnSim2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSim2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbtnSim2ActionPerformed
 
     /**
      * @param args the command line arguments

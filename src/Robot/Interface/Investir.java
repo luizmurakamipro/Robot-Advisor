@@ -40,7 +40,7 @@ public class Investir extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(128, 128, 128));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Investimentos", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Investimentos", 2, 0, new java.awt.Font("Arial", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 
         btnMenu3.setBackground(new java.awt.Color(153, 0, 0));
         btnMenu3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -61,6 +61,11 @@ public class Investir extends javax.swing.JFrame {
 
         jcbAgencia.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jcbAgencia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Agência 1", "Agência 2", "Agência 3", "Agência 4" }));
+        jcbAgencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbAgenciaActionPerformed(evt);
+            }
+        });
 
         lblTpInves.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lblTpInves.setForeground(new java.awt.Color(255, 255, 255));
@@ -147,6 +152,10 @@ public class Investir extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnMenu3ActionPerformed
 
+    private void jcbAgenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAgenciaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbAgenciaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -184,9 +193,6 @@ public class Investir extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnInvestir;
-    private javax.swing.JButton btnMenu;
-    private javax.swing.JButton btnMenu1;
-    private javax.swing.JButton btnMenu2;
     private javax.swing.JButton btnMenu3;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JPanel jPanel1;

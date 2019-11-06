@@ -23,10 +23,18 @@ public class QuestionarioDAO extends DAO<Questionario>{
     @Override
     public boolean inserir(Questionario element) {
         try{
-            String comando = "insert into questionario (perguntas, respostas) values (?,?);";
-            
-            PreparedStatement stmt = conn.prepareStatement(
-                                comando,Statement.RETURN_GENERATED_KEYS);
+            String comando = "insert into questionario ("
+                    + "pergunta_1,"
+                    + "pergunta_2,"
+                    + "pergunta_3,"
+                    + "pergunta_4,"
+                    + "pergunta_5,"
+                    + "pergunta_6,"
+                    + "pergunta_7,"
+                    + "pergunta_8 )"
+                    + " values (?,?,?,?,?,?,?,?);";
+      
+            PreparedStatement stmt = conn.prepareStatement(comando,Statement.RETURN_GENERATED_KEYS);
             
             stmt.setString(1, "");
             stmt.setInt(2, 1);
