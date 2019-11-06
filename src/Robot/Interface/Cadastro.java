@@ -775,44 +775,47 @@ public class Cadastro extends javax.swing.JFrame {
 
             u.setNome(txtNome.getText());
             u.setCPF(txtCpf.getText());//.replaceAll("[^0-9]", ""));
-        u.setRG(txtRg.getText());//.replaceAll("[^0-9]", ""));
-        u.setEmail(txtEmail.getText());
-        StringToDate td = new StringToDate();
-        u.setDtNasc(td.convertReverse(txtDnasc.getText()));
+            u.setRG(txtRg.getText());//.replaceAll("[^0-9]", ""));
+            u.setEmail(txtEmail.getText());
+            StringToDate td = new StringToDate();
+            u.setDtNasc(td.convertReverse(txtDnasc.getText()));
 
-        u.setSexo(btnMasculino.isSelected() == true ? "Masculino" : btnFeminino.isSelected() == true ? "Feminino" : "Não definido");
+            u.setSexo(btnMasculino.isSelected() == true ? "Masculino" : btnFeminino.isSelected() == true ? "Feminino" : "Não definido");
 
-        e.setCEP(txtCep.getText());//.replaceAll("[^0-9]", ""));
-        e.setBairro(txtBairro.getText());
-        e.setCidade(txtCidade.getText());
-        e.setLogradouro(txtLogradouro.getText());
-        e.setNumero(txtNumero.getText());
-        e.setUF(comUf.getSelectedItem().toString());
-        e.setPais(cbPais.getSelectedItem().toString());
-        u.setEndereco(e);
+            e.setCEP(txtCep.getText());//.replaceAll("[^0-9]", ""));
+            e.setBairro(txtBairro.getText());
+            e.setCidade(txtCidade.getText());
+            e.setLogradouro(txtLogradouro.getText());
+            e.setNumero(txtNumero.getText());
+            e.setUF(comUf.getSelectedItem().toString());
+            e.setPais(cbPais.getSelectedItem().toString());
+            u.setEndereco(e);
 
-        p.setTipoPerfil("Nenhum");
-        p.setQuestionario(new Questionario());
-        u.setPerfil(p);
+            p.setTipoPerfil("Nenhum");
+            p.setQuestionario(new Questionario());
+            u.setPerfil(p);
+            
+            u.setAdministrador(false);
+            u.setSaldo(11200);
 
-        u.setLogin(txtLogin.getText());
+            u.setLogin(txtLogin.getText());
 
-        if (txtSenha.getText().equals(txtConfSenha.getText()))//mascarar a senha
-        u.setSenha(txtSenha.getText());
-        else
-        throw new Exception();
+            if (txtSenha.getText().equals(txtConfSenha.getText()))//mascarar a senha
+                u.setSenha(txtSenha.getText());
+            else
+                throw new Exception();
 
-        UsuarioDAO cd = new UsuarioDAO();
+            UsuarioDAO cd = new UsuarioDAO();
 
-        if (u.getID() == null)
-        cd.inserir(u);
-        else
-        cd.alterar(u);
+            if (u.getID() == null)
+                cd.inserir(u);
+            else
+                cd.alterar(u);
 
-        JOptionPane.showMessageDialog(null,"Seu cadastro " + txtNome.getText() + " foi concluído com sucesso!","SUCESSO", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Seu cadastro " + txtNome.getText() + " foi concluído com sucesso!","SUCESSO", JOptionPane.INFORMATION_MESSAGE);
 
-        new Inicio().setVisible(true);
-        this.dispose();
+            new Inicio().setVisible(true);
+            this.dispose();
         }
         catch (Exception e)
         {

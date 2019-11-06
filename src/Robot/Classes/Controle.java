@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class Controle {
     public static Controle Instancia;
-    private static List<Usuario> pUser;
+    private static Usuario User;
     
     public static Controle getInstancia()
     {
@@ -24,13 +24,13 @@ public class Controle {
         return Instancia;
     }
     
-    public List<Usuario> getList()
+    public void setUser(Usuario u)
     {
-        return pUser;
+        User = u;
     }
     
-    private Controle()
+    public Usuario getUser()
     {
-        pUser = new LinkedList<>(); 
+        return User;
     }
 }

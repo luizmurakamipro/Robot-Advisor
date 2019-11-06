@@ -5,6 +5,8 @@
  */
 package Robot.Interface;
 
+import Robot.Classes.Controle;
+
 /**
  *
  * @author Luiz Murakami
@@ -16,6 +18,8 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
+        
+        txtSaldo.setText(Double.toString(Controle.getInstancia().getUser().getSaldo()));
     }
 
     /**

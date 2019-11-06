@@ -43,8 +43,8 @@ public class UsuarioDAO extends DAO<Usuario>{
             else
                 pd.alterar(p);
             
-            String comando = "insert into usuario (nome, cpf, rg, datanascimento, sexo, email, login, senha, id_endereco, id_perfil)"
-                    + " values (?,?,?,?,?,?,?,?,?,?);";
+            String comando = "insert into usuario (nome, cpf, rg, datanascimento, sexo, email, login, senha, saldo, administrador, id_endereco, id_perfil)"
+                    + " values (?,?,?,?,?,?,?,?,?,?,?,?);";
             
             PreparedStatement stmt = conn.prepareStatement(
                                 comando,Statement.RETURN_GENERATED_KEYS);
@@ -57,8 +57,10 @@ public class UsuarioDAO extends DAO<Usuario>{
             stmt.setString(6, element.getEmail());
             stmt.setString(7, element.getLogin());
             stmt.setString(8, element.getSenha());
-            stmt.setInt(9, element.getEndereco().getID());
-            stmt.setInt(10, element.getPerfil().getID());  
+            stmt.setDouble(9, element.getSaldo());
+            stmt.setBoolean(10, element.getAdministrador());
+            stmt.setInt(11, element.getEndereco().getID());
+            stmt.setInt(12, element.getPerfil().getID());  
             
             int linhas = stmt.executeUpdate();
             
@@ -81,7 +83,7 @@ public class UsuarioDAO extends DAO<Usuario>{
     {
         try
         {              
-            String comando = "update usuario (nome, cpf, rg, datanascimento, sexo, email, login, senha, id_endereco, id_perfil) values (?,?,?,?,?,?,?,?,?,?);";
+            String comando = "update usuario (nome, cpf, rg, datanascimento, sexo, email, login, senha, saldo, administrador, id_endereco, id_perfil) values (?,?,?,?,?,?,?,?,?,?,?,?);";
             
             PreparedStatement stmt = conn.prepareStatement(
                                 comando,Statement.RETURN_GENERATED_KEYS);
@@ -94,8 +96,10 @@ public class UsuarioDAO extends DAO<Usuario>{
             stmt.setString(6, element.getEmail());
             stmt.setString(7, element.getLogin());
             stmt.setString(8, element.getSenha());
-            stmt.setInt(9, element.getEndereco().getID());
-            stmt.setInt(10, element.getPerfil().getID());  
+            stmt.setDouble(9, element.getSaldo());
+            stmt.setBoolean(10, element.getAdministrador());
+            stmt.setInt(11, element.getEndereco().getID());
+            stmt.setInt(12, element.getPerfil().getID());  
             
             int linhas = stmt.executeUpdate();
             
@@ -124,6 +128,7 @@ public class UsuarioDAO extends DAO<Usuario>{
         pUser = ObservableCollections.observableList(pUser);
         
         String sql = "SELECT * FROM usuario;";
+        
         try
         {
             Statement stmt = conn.createStatement();
@@ -143,6 +148,8 @@ public class UsuarioDAO extends DAO<Usuario>{
                 c.setEmail(rs.getString("email"));
                 c.setLogin(rs.getString("login"));
                 c.setSenha(rs.getString("senha"));
+                c.setSaldo(rs.getDouble("saldo"));
+                c.setAdministrador(rs.getBoolean("administrador"));
                 c.setEndereco(ed.getById(rs.getInt("id_endereco")));
                 c.setPerfil(pd.getById(rs.getInt("id_perfil")));
                 
@@ -155,4 +162,88 @@ public class UsuarioDAO extends DAO<Usuario>{
         }
         return pUser;
     } 
+    
+    public Boolean getLogin(String Login)
+    {
+        String sql = "SELECT * FROM usuario WHERE login = ?";
+        try
+        {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, Login);
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            if(rs.next()) 
+            {
+                return true;
+            }
+        }catch(SQLException e)
+        {
+            System.out.println("erro ao retornar login por parametro" + e.getMessage());
+        }
+        
+        return false;
+    }
+    
+    public Boolean getSenha(String Senha)
+    {
+        String sql = "SELECT * FROM usuario WHERE senha = ?";
+        try
+        {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, Senha);
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            if(rs.next()) 
+            {
+                return true;
+            }
+        }catch(SQLException e)
+        {
+            System.out.println("erro ao retornar senha por parametro" + e.getMessage());
+        }
+        
+        return false;
+    }
+    
+    public Usuario getByLoginSenha(String Login, String Senha)
+    {
+        String sql = "SELECT * FROM usuario WHERE login = ? and senha = ?";
+        
+        try
+        {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, Login);
+            stmt.setString(2, Senha);
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            EnderecoDAO ed = new EnderecoDAO();
+            PerfilDAO pd = new PerfilDAO();
+            
+            if(rs.next()) 
+            {
+                Usuario c = new Usuario();
+                c.setID(rs.getInt("id_usuario"));
+                c.setNome(rs.getString("nome"));
+                c.setCPF(rs.getString("cpf"));
+                c.setRG(rs.getString("rg"));
+                c.setDtNasc(rs.getDate("datanascimento"));
+                c.setEmail(rs.getString("email"));
+                c.setLogin(rs.getString("login"));
+                c.setSenha(rs.getString("senha"));
+                c.setSaldo(rs.getDouble("saldo"));
+                c.setAdministrador(rs.getBoolean("administrador"));
+                c.setEndereco(ed.getById(rs.getInt("id_endereco")));
+                c.setPerfil(pd.getById(rs.getInt("id_perfil")));
+                
+                return c;
+            }
+        }catch(SQLException e)
+        {
+            System.out.println("erro ao retornar endereco por id" + e.getMessage());
+        }
+        return null;
+    }
 }
