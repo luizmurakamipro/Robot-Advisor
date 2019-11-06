@@ -47,7 +47,7 @@ public class Simulacao extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(128, 128, 128));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Simulação", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Simulação", 2, 0, new java.awt.Font("Arial", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 
         lblAgencia.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lblAgencia.setForeground(new java.awt.Color(255, 255, 255));
@@ -75,6 +75,11 @@ public class Simulacao extends javax.swing.JFrame {
         btnSimular.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnSimular.setForeground(new java.awt.Color(255, 255, 255));
         btnSimular.setText("Simular");
+        btnSimular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSimularActionPerformed(evt);
+            }
+        });
 
         btnInvestir.setBackground(new java.awt.Color(0, 153, 0));
         btnInvestir.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -92,7 +97,7 @@ public class Simulacao extends javax.swing.JFrame {
         });
 
         jPanel2.setBackground(new java.awt.Color(128, 128, 128));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado Estimado", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado Estimado", 2, 0, new java.awt.Font("Arial", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 
         tbResult.setModel(new javax.swing.table.DefaultTableModel(
@@ -116,11 +121,11 @@ public class Simulacao extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         jPanel3.setBackground(new java.awt.Color(128, 128, 128));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Rentabilidade", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Rentabilidade", 2, 0, new java.awt.Font("Arial", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 
         tbRentabilidade.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -224,6 +229,12 @@ public class Simulacao extends javax.swing.JFrame {
         new Principal().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnMenuActionPerformed
+
+    private void btnSimularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimularActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_btnSimularActionPerformed
 
     /**
      * @param args the command line arguments

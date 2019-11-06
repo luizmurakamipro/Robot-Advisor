@@ -5,13 +5,16 @@
  */
 package Robot.Interface;
 
+import java.util.List;
+
 
 /**
  *
  * @author Usuario
  */
 public class Questionario extends javax.swing.JFrame {
-
+    
+    private List<QuestionarioDAO> lstQuestionarioDAO;
     /**
      * Creates new form Questionario
      */
@@ -65,7 +68,7 @@ public class Questionario extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jpQuestionario.setBackground(new java.awt.Color(128, 128, 128));
-        jpQuestionario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Questionário", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Black", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        jpQuestionario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Questionário", 2, 0, new java.awt.Font("Arial Black", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
         jpQuestionario.setForeground(new java.awt.Color(255, 255, 255));
 
         lblP1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -269,26 +272,22 @@ public class Questionario extends javax.swing.JFrame {
                             .addGroup(jpQuestionarioLayout.createSequentialGroup()
                                 .addComponent(jbtnSim10)
                                 .addGap(32, 32, 32)
-                                .addComponent(jbtnNao10)))))
-                .addGap(0, 0, 0))
+                                .addComponent(jbtnNao10))))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpQuestionarioLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(lblP2)
+            .addComponent(lblP3)
+            .addComponent(lblP4)
             .addGroup(jpQuestionarioLayout.createSequentialGroup()
-                .addGroup(jpQuestionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblP2)
-                    .addComponent(lblP3)
-                    .addComponent(lblP4)
-                    .addGroup(jpQuestionarioLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jbtnSim1)
-                        .addGap(32, 32, 32)
-                        .addComponent(jbtnNao1))
-                    .addGroup(jpQuestionarioLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblP1)))
-                .addGap(0, 0, 0))
+                .addGap(30, 30, 30)
+                .addComponent(jbtnSim1)
+                .addGap(32, 32, 32)
+                .addComponent(jbtnNao1))
+            .addGroup(jpQuestionarioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblP1))
         );
         jpQuestionarioLayout.setVerticalGroup(
             jpQuestionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -369,14 +368,15 @@ public class Questionario extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(sclPane, javax.swing.GroupLayout.PREFERRED_SIZE, 636, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 28, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-        // TODO add your handling code here:
+        QuestionarioDAO qd = new QuestionarioDAO();
+        lstRespostas = qd.lstRespostas();
     }//GEN-LAST:event_btnEnviarActionPerformed
 
     /**
