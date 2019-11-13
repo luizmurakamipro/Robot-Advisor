@@ -5,6 +5,10 @@
  */
 package Robot.Interface;
 
+import Robot.Classes.Controle;
+import Robot.DAO.UsuarioDAO;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Laboratorio
@@ -95,8 +99,28 @@ public class RecuperSenha extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void ConfirmanomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmanomeActionPerformed
-             new AlteracaoSenha().setVisible(true);
-             this.dispose();
+         
+             
+             try
+            {
+                UsuarioDAO ud = new UsuarioDAO();
+                
+                if (ud.getLogin(jTextField1.getText()) == true)
+                {
+                    Controle.getInstancia().setUser(ud.getByLogin(jTextField1.getText()));
+                        new AlteracaoSenha().setVisible(true);
+                        this.dispose();
+                    
+                }
+                else
+                    
+                    throw new Exception();
+            } 
+            catch (Exception e)
+            {
+                JOptionPane.showMessageDialog(null,"Tem algo de errado nas suas informações","ERRO", JOptionPane.OK_OPTION);
+             
+            }
     }//GEN-LAST:event_ConfirmanomeActionPerformed
 
     /**

@@ -246,4 +246,47 @@ public class UsuarioDAO extends DAO<Usuario>{
         }
         return null;
     }
+
+    public Usuario getByLogin(String Login) {
+        
+        String sql = "SELECT * FROM usuario WHERE login = ?";
+        try
+        {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, Login);
+            
+            ResultSet rs = stmt.executeQuery();
+             EnderecoDAO ed = new EnderecoDAO();
+            PerfilDAO pd = new PerfilDAO();
+            
+            if(rs.next()) 
+            {
+                Usuario c = new Usuario();
+                c.setID(rs.getInt("id_usuario"));
+                c.setNome(rs.getString("nome"));
+                c.setCPF(rs.getString("cpf"));
+                c.setRG(rs.getString("rg"));
+                c.setDtNasc(rs.getDate("datanascimento"));
+                c.setEmail(rs.getString("email"));
+                c.setLogin(rs.getString("login"));
+                c.setSenha(rs.getString("senha"));
+                c.setSaldo(rs.getDouble("saldo"));
+                c.setAdministrador(rs.getBoolean("administrador"));
+                c.setEndereco(ed.getById(rs.getInt("id_endereco")));
+                c.setPerfil(pd.getById(rs.getInt("id_perfil")));
+                
+                return c;
+            }
+        }catch(SQLException e)
+        {
+            System.out.println("erro ao retornar senha" + e.getMessage());
+        }
+        return null;
+
+
+
+///throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+  
 }
