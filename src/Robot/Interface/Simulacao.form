@@ -67,7 +67,10 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jcbAgencia" max="32767" attributes="0"/>
                               <Component id="jcbTpInves" pref="251" max="32767" attributes="0"/>
-                              <Component id="jcbValor" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jFTFValor" min="-2" pref="135" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -103,9 +106,9 @@
                       <Component id="jcbTpInves" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblValor" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jcbValor" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lblValor" min="-2" max="-2" attributes="0"/>
+                      <Component id="jFTFValor" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
@@ -183,6 +186,9 @@
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jcbTpInvesActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -198,25 +204,6 @@
             <Property name="text" type="java.lang.String" value="Valor R$"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jcbValor">
-          <Properties>
-            <Property name="editable" type="boolean" value="true"/>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="14" style="1"/>
-            </Property>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="100,00"/>
-                <StringItem index="1" value="1.000,00"/>
-                <StringItem index="2" value="10.000,00"/>
-                <StringItem index="3" value="50.000,00"/>
-              </StringArray>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
         <Component class="javax.swing.JButton" name="btnSimular">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -230,6 +217,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Simular"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSimularActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnInvestir">
           <Properties>
@@ -244,6 +234,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Investir"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInvestirActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnMenu">
           <Properties>
@@ -421,6 +414,18 @@
             </Container>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JFormattedTextField" name="jFTFValor">
+          <Properties>
+            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+              <Format subtype="1" type="0"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="Ftfvalor" noResource="true"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFTFValorActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jFTFValorKeyTyped"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>

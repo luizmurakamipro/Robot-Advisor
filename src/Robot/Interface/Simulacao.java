@@ -5,16 +5,38 @@
  */
 package Robot.Interface;
 
+import java.text.DecimalFormat;
+import javax.swing.JFormattedTextField;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Usuario
  */
 public class Simulacao extends javax.swing.JFrame {
-
+    
+    // Aqui declaro as variaveis que vou usar na class Simulacao
+    private boolean valida = false;
+    private int agencia = 0, investimento = 0, controlaLinhaResult = 0, controlaLinhaRentabilidade = 0;
+    private float valor = 0, bruto = 0, ir = 0, custo = 0, liquido = 0, periodo = 0, ttl_ano = 0, liquido_total = 0, valor_juros_mes = 0;
+    private float[] arrayTaxaInvestimento = new float[8];
+    private String descAgencia = ""; 
+    
     /**
      * Creates new form Simulacao
      */
-    public Simulacao() { 
+    // metodo construtor, quando chamar a tela já executa o que tiver aqui
+    public Simulacao() {
+        // quando pegar do banco n precisa mais do array com os valores, pq valor vai vei do banco
+        this.arrayTaxaInvestimento[0] = (float) 0.03;
+        this.arrayTaxaInvestimento[1] = (float) 0.04;
+        this.arrayTaxaInvestimento[2] = (float) 0.05;
+        this.arrayTaxaInvestimento[3] = (float) 0.06;
+        this.arrayTaxaInvestimento[4] = (float) 0.07;
+        this.arrayTaxaInvestimento[5] = (float) 0.08;
+        this.arrayTaxaInvestimento[6] = (float) 0.09;
+        this.arrayTaxaInvestimento[7] = (float) 0.1;
+
         initComponents();
     }
 
@@ -33,7 +55,6 @@ public class Simulacao extends javax.swing.JFrame {
         lblTpInves = new javax.swing.JLabel();
         jcbTpInves = new javax.swing.JComboBox<>();
         lblValor = new javax.swing.JLabel();
-        jcbValor = new javax.swing.JComboBox<>();
         btnSimular = new javax.swing.JButton();
         btnInvestir = new javax.swing.JButton();
         btnMenu = new javax.swing.JButton();
@@ -43,11 +64,12 @@ public class Simulacao extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tbRentabilidade = new javax.swing.JTable();
+        jFTFValor = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(128, 128, 128));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Simulação", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Simulação", 2, 0, new java.awt.Font("Arial", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 
         lblAgencia.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lblAgencia.setForeground(new java.awt.Color(255, 255, 255));
@@ -62,24 +84,35 @@ public class Simulacao extends javax.swing.JFrame {
 
         jcbTpInves.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jcbTpInves.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ações", "Caderneta de Poupança", "CDB e RDB", "Debêntures", "Fundos de Investimento", "LCI e LCA", "Previdência Privada", "Títulos Públicos" }));
+        jcbTpInves.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbTpInvesActionPerformed(evt);
+            }
+        });
 
         lblValor.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lblValor.setForeground(new java.awt.Color(255, 255, 255));
         lblValor.setText("Valor R$");
 
-        jcbValor.setEditable(true);
-        jcbValor.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jcbValor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "100,00", "1.000,00", "10.000,00", "50.000,00" }));
-
         btnSimular.setBackground(new java.awt.Color(0, 51, 255));
         btnSimular.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnSimular.setForeground(new java.awt.Color(255, 255, 255));
         btnSimular.setText("Simular");
+        btnSimular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSimularActionPerformed(evt);
+            }
+        });
 
         btnInvestir.setBackground(new java.awt.Color(0, 153, 0));
         btnInvestir.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnInvestir.setForeground(new java.awt.Color(255, 255, 255));
         btnInvestir.setText("Investir");
+        btnInvestir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInvestirActionPerformed(evt);
+            }
+        });
 
         btnMenu.setBackground(new java.awt.Color(153, 0, 0));
         btnMenu.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -92,7 +125,7 @@ public class Simulacao extends javax.swing.JFrame {
         });
 
         jPanel2.setBackground(new java.awt.Color(128, 128, 128));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado Estimado", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado Estimado", 2, 0, new java.awt.Font("Arial", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 
         tbResult.setModel(new javax.swing.table.DefaultTableModel(
@@ -120,7 +153,7 @@ public class Simulacao extends javax.swing.JFrame {
         );
 
         jPanel3.setBackground(new java.awt.Color(128, 128, 128));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Rentabilidade", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Rentabilidade", 2, 0, new java.awt.Font("Arial", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 
         tbRentabilidade.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -146,6 +179,19 @@ public class Simulacao extends javax.swing.JFrame {
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
         );
 
+        jFTFValor.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
+        jFTFValor.setName("Ftfvalor"); // NOI18N
+        jFTFValor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFTFValorActionPerformed(evt);
+            }
+        });
+        jFTFValor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jFTFValorKeyTyped(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -162,7 +208,9 @@ public class Simulacao extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jcbAgencia, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jcbTpInves, 0, 251, Short.MAX_VALUE)
-                            .addComponent(jcbValor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jFTFValor, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,9 +236,9 @@ public class Simulacao extends javax.swing.JFrame {
                     .addComponent(lblTpInves)
                     .addComponent(jcbTpInves, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblValor)
-                    .addComponent(jcbValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jFTFValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -220,14 +268,63 @@ public class Simulacao extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // aqui é chamado quando clica no botão principal
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
+        // chamao a class do Principal e deixo visivel
         new Principal().setVisible(true);
+        // saio dessa tela
         this.dispose();
     }//GEN-LAST:event_btnMenuActionPerformed
 
+    // aqui é quando clica no botão simulação
+    private void btnSimularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimularActionPerformed
+        // nos set estou chamando os metodos para salver o valor nas devidas variaveis
+        setAgencia(jcbAgencia.getSelectedIndex());
+        setDescAgencia((String) jcbAgencia.getSelectedItem());
+        setInvestimento(jcbTpInves.getSelectedIndex());
+        
+        // seto o valor do I.R
+        setIr((float) 0.15);
+       
+        // valido se o campo de valor foi informado 
+        if ("".equals(jFTFValor.getText())) {
+            JOptionPane.showMessageDialog(jFTFValor, "Informe o Valor para Simular","Valor",JOptionPane.PLAIN_MESSAGE);
+        } else {
+            setValor(Integer.parseInt(jFTFValor.getText().replace(".", "")));
+            // chamo o metodo para fazer os calculos
+            calculaInvestimento();
+        }
+    }//GEN-LAST:event_btnSimularActionPerformed
+
+    // aqui é quando clica no botão investir
+    private void btnInvestirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInvestirActionPerformed
+        // chamo a class investir dando foco
+        new Investir().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnInvestirActionPerformed
+
+    private void jFTFValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFTFValorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFTFValorActionPerformed
+
+    private void jcbTpInvesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbTpInvesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbTpInvesActionPerformed
+
+    // quando adicionar um caracter no campo de valor, chama esse metodo para validar se é número ou ..
+    // só deixa informar numero ou .
+    private void jFTFValorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jFTFValorKeyTyped
+        String caracteres = "0987654321.";
+        if(!caracteres.contains(evt.getKeyChar()+"")){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jFTFValorKeyTyped
+        
     /**
      * @param args the command line arguments
      */
+    // aqui é executado quando a class Simulacao é instanciada/chamada
+    // quando vc clica no menu no botão se simulação chama esse metodo
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -251,19 +348,24 @@ public class Simulacao extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Simulacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            // aqui 'instancia a função' ou melhor, faz aparecer a tela
             public void run() {
+                // faz a tela aparecer/funcionar
                 new Simulacao().setVisible(true);
             }
         });
     }
 
+    // aqui fica declarado os campos da tela
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnInvestir;
     private javax.swing.JButton btnMenu;
     private javax.swing.JButton btnSimular;
+    private javax.swing.JFormattedTextField jFTFValor;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -271,11 +373,325 @@ public class Simulacao extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JComboBox<String> jcbAgencia;
     private javax.swing.JComboBox<String> jcbTpInves;
-    private javax.swing.JComboBox<String> jcbValor;
     private javax.swing.JLabel lblAgencia;
     private javax.swing.JLabel lblTpInves;
     private javax.swing.JLabel lblValor;
     private javax.swing.JTable tbRentabilidade;
     private javax.swing.JTable tbResult;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the valida
+     */
+    
+    /* aqui é onde fica os get/set
+       onde fica os metodos que manipulam as variaveis
+    */
+    public boolean isValida() {
+        return valida;
+    }
+
+    /**
+     * @param valida the valida to set
+     */
+    public void setValida(boolean valida) {
+        this.valida = valida;
+    }
+
+    /**
+     * @return the valor
+     */
+    public float getValor() {
+        return valor;
+    }
+
+    /**
+     * @param valor the valor to set
+     */
+    public void setValor(float valor) {
+        this.valor = valor;
+    }
+
+    /**
+     * @return the bruto
+     */
+    public float getBruto() {
+        return bruto;
+    }
+
+    /**
+     * @param bruto the bruto to set
+     */
+    public void setBruto(float bruto) {
+        this.bruto = bruto;
+    }
+
+    /**
+     * @return the ir
+     */
+    public float getIr() {
+        return ir;
+    }
+
+    /**
+     * @param ir the ir to set
+     */
+    public void setIr(float ir) {
+        this.ir = ir;
+    }
+
+    /**
+     * @return the custo
+     */
+    public float getCusto() {
+        return custo;
+    }
+
+    /**
+     * @param custo the custo to set
+     */
+    public void setCusto(float custo) {
+        this.custo = custo;
+    }
+
+    /**
+     * @return the liquido
+     */
+    public float getLiquido() {
+        return liquido;
+    }
+
+    /**
+     * @param liquido the liquido to set
+     */
+    public void setLiquido(float liquido) {
+        this.liquido = liquido;
+    }
+
+    /**
+     * @return the periodo
+     */
+    public float getPeriodo() {
+        return periodo;
+    }
+
+    /**
+     * @param periodo the periodo to set
+     */
+    public void setPeriodo(float periodo) {
+        this.periodo = periodo;
+    }
+
+    /**
+     * @return the ttl_ano
+     */
+    public float getTtl_ano() {
+        return ttl_ano;
+    }
+
+    /**
+     * @param ttl_ano the ttl_ano to set
+     */
+    public void setTtl_ano(float ttl_ano) {
+        this.ttl_ano = ttl_ano;
+    }
+
+    /**
+     * @return the liquido_total
+     */
+    public float getLiquido_total() {
+        return liquido_total;
+    }
+
+    /**
+     * @param liquido_total the liquido_total to set
+     */
+    public void setLiquido_total(float liquido_total) {
+        this.liquido_total = liquido_total;
+    }
+
+    /**
+     * @return the agencia
+     */
+    public int getAgencia() {
+        return agencia;
+    }
+
+    /**
+     * @param agencia the agencia to set
+     */
+    public void setAgencia(int agencia) {
+        this.agencia = agencia;
+    }
+
+    /**
+     * @return the investimento
+     */
+    public int getInvestimento() {
+        return investimento;
+    }
+
+    /**
+     * @param investimento the investimento to set
+     */
+    public void setInvestimento(int investimento) {
+        this.investimento = investimento;
+    }
+    
+    /**
+     * @return the controlaLinhaResult
+     */
+    public int getControlaLinhaResult() {
+        return controlaLinhaResult;
+    }
+
+    /**
+     * @param controlaLinhaResult the controlaLinhaResult to set
+     */
+    public void setControlaLinhaResult(int controlaLinhaResult) {
+        this.controlaLinhaResult = controlaLinhaResult;
+    }
+
+    /**
+     * @return the controlaLinhaRentabilidade
+     */
+    public int getControlaLinhaRentabilidade() {
+        return controlaLinhaRentabilidade;
+    }
+
+    /**
+     * @param controlaLinhaRentabilidade the controlaLinhaRentabilidade to set
+     */
+    public void setControlaLinhaRentabilidade(int controlaLinhaRentabilidade) {
+        this.controlaLinhaRentabilidade = controlaLinhaRentabilidade;
+    }
+    
+    /**
+     * @return the descAgencia
+     */
+    public String getDescAgencia() {
+        return descAgencia;
+    }
+
+    /**
+     * @param descAgencia the descAgencia to set
+     */
+    public void setDescAgencia(String descAgencia) {
+        this.descAgencia = descAgencia;
+    }
+    
+    // vou usar para deixar os valores com 2 casas decimais apos o ponto
+    public String formatarValor(Float vl) {
+        DecimalFormat formatador = new DecimalFormat(".##");
+        return formatador.format(vl);
+    }
+    
+    /**
+     * @return the valor_juros_mes
+     */
+    public float getValor_juros_mes() {
+        return valor_juros_mes;
+    }
+
+    /**
+     * @param valor_juros_mes the valor_juros_mes to set
+     */
+    public void setValor_juros_mes(float valor_juros_mes) {
+        this.valor_juros_mes = valor_juros_mes;
+    }
+    
+    public void calculaInvestimento() {       
+        // Adiciono a agencia no Resultado estimado 
+        // uso o getDescAgencia para pegar a descrição da agencia selecionada
+        // o getControlaLinhaResult uso para saber em qual linha da tabela adicionar
+        // o ultimo parametro que aqui está 0 é correspondente a coluna
+        tbResult.setValueAt(getDescAgencia(),getControlaLinhaResult(),0);
+        
+        // calculo a coluna valor bruto
+        // aqui this.arrayTaxaInvestimento[getInvestimento()] pego o valor no array correspondente a opção selecionada
+        setBruto(getValor() + (getValor() * this.arrayTaxaInvestimento[getInvestimento()]));
+        tbResult.setValueAt(getBruto(), getControlaLinhaResult(), 1);
+        
+        // calculo a coluna I.R
+        tbResult.setValueAt(formatarValor((getValor() * getIr())) , getControlaLinhaResult(), 2);
+        
+        // calculo custo, nunca nem vi o que é
+        // só vou setar um valor fixo na tabela
+        tbResult.setValueAt(10, getControlaLinhaResult(), 3);
+        
+        // calculo valor liquido
+        setLiquido(getBruto() - (getBruto() * getIr()));
+        tbResult.setValueAt(getLiquido(), getControlaLinhaResult(), 4);
+        
+        // Daqui pra baixo vou fazer os calculos para preencher a tabela de rentabilidade
+        
+        // o periodo vou deixar fixo, mas vou fazer uma validação para alterar em 3 anos
+        
+        // mano, como vou deixar fixo 3 anos, vou fazer um laço para preencher 3 linhas da rentabilidade, uma linha corresponde a cada ano.
+        // A rentabilidade vai alternar conforme clicar em simular, cada vez que clicar em simular vai trazer na rentabilidade os valores
+        // correspondentes aos filtros que foram selecionados por ultimo.
+        
+        // como vou usar essas variaveis no laço, vou limpar antes de usar
+        setControlaLinhaRentabilidade(0);
+        for (int xp = 0; xp < 3; xp++) {
+            setValor_juros_mes(0);
+            setTtl_ano(0);
+            setLiquido_total(0);
+            if (getControlaLinhaRentabilidade() == 0) {
+                tbRentabilidade.setValueAt(12, getControlaLinhaRentabilidade(), 0);
+
+                // laço para fazer o calculo mês a mes / juros sobre juros
+                setTtl_ano(getValor());
+                for (int i = 0; i < 12; i++) {
+                    setValor_juros_mes(getValor_juros_mes() + (getTtl_ano() * this.arrayTaxaInvestimento[getInvestimento()]));
+                    setTtl_ano(getTtl_ano() + (getTtl_ano() * this.arrayTaxaInvestimento[getInvestimento()]));
+                }
+
+                tbRentabilidade.setValueAt(formatarValor(getValor_juros_mes()), getControlaLinhaRentabilidade(), 1);
+
+                // calculo do valor liquido
+                // pego o total do ano bruto e tiro o I.R do bruto, ficando o liquido
+                setLiquido_total(getTtl_ano() - (getTtl_ano() * getIr()));
+                tbRentabilidade.setValueAt(formatarValor(getLiquido_total()), getControlaLinhaRentabilidade(), 2);
+
+            } else if (getControlaLinhaRentabilidade() == 1) {
+                tbRentabilidade.setValueAt(24, getControlaLinhaRentabilidade(), 0);
+
+                setTtl_ano(getValor());
+                for (int i = 0; i < 24; i++) {
+                    setValor_juros_mes(getValor_juros_mes() + (getTtl_ano() * this.arrayTaxaInvestimento[getInvestimento()]));
+                    setTtl_ano(getTtl_ano() + (getTtl_ano() * this.arrayTaxaInvestimento[getInvestimento()]));
+                }
+
+                tbRentabilidade.setValueAt(formatarValor(getValor_juros_mes()), getControlaLinhaRentabilidade(), 1);
+
+                // calculo do valor liquido
+                // pego o total do ano bruto e tiro o I.R do bruto, ficando o liquido
+                setLiquido_total(getTtl_ano() - (getTtl_ano() * getIr()));
+                tbRentabilidade.setValueAt(formatarValor(getLiquido_total()), getControlaLinhaRentabilidade(), 2);
+
+            } else {
+                tbRentabilidade.setValueAt(36, getControlaLinhaRentabilidade(), 0);
+
+                setTtl_ano(getValor());
+                for (int i = 0; i < 36; i++) {
+                    setValor_juros_mes(getValor_juros_mes() + (getTtl_ano() * this.arrayTaxaInvestimento[getInvestimento()]));
+                    setTtl_ano(getTtl_ano() + (getTtl_ano() * this.arrayTaxaInvestimento[getInvestimento()]));
+                }
+
+                tbRentabilidade.setValueAt(formatarValor(getValor_juros_mes()), getControlaLinhaRentabilidade(), 1);
+
+                // calculo do valor liquido
+                // pego o total do ano bruto e tiro o I.R do bruto, ficando o liquido
+                setLiquido_total(getTtl_ano() - (getTtl_ano() * getIr()));
+                tbRentabilidade.setValueAt(formatarValor(getLiquido_total()), getControlaLinhaRentabilidade(), 2);
+
+            }
+            // inclemento a variavel para alterar a linha da tabela
+            setControlaLinhaRentabilidade(getControlaLinhaRentabilidade() + 1);
+        }
+        
+        // inclemento a variavel para alterar a linha da tabela
+        setControlaLinhaResult(getControlaLinhaResult() + 1);
+    }
 }
